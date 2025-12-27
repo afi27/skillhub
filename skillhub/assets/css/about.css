@@ -1,0 +1,168 @@
+/* about.css - SkillHub About Section Styles */
+
+/* About Section */
+#about {
+    padding: 80px 0;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.about-header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.about-tagline {
+    font-size: 1.4rem;
+    color: #4a5568;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.about-content {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 50px;
+    margin-bottom: 40px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.about-content h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #4299e1;
+    display: inline-block;
+    color: #1a1a1a;
+    font-weight: 700;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: #4a5568;
+}
+
+.highlight-box {
+    background-color: #ebf8ff;
+    border-left: 4px solid #4299e1;
+    padding: 25px;
+    margin: 30px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.highlight-box h3 {
+    color: #2c5282;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.mission-vision-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.mission-box, .vision-box {
+    flex: 1;
+    min-width: 300px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    border-top: 5px solid #4299e1;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.vision-box {
+    border-top-color: #38b2ac;
+}
+
+.mission-box h3, .vision-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #2d3748;
+    font-weight: 700;
+}
+
+.mission-box p, .vision-box p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #4a5568;
+}
+
+/* Responsive Styles for About Section */
+@media (max-width: 992px) {
+    .about-header h1 {
+        font-size: 2.3rem;
+    }
+    
+    .about-content {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    #about {
+        padding: 60px 0;
+    }
+    
+    .about-header {
+        margin-bottom: 40px;
+    }
+    
+    .about-header h1 {
+        font-size: 2rem;
+    }
+    
+    .about-tagline {
+        font-size: 1.2rem;
+    }
+    
+    .about-content {
+        padding: 30px;
+    }
+    
+    .about-content h2 {
+        font-size: 1.7rem;
+    }
+    
+    .mission-vision-container {
+        flex-direction: column;
+    }
+    
+    .mission-box, .vision-box {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .about-tagline {
+        font-size: 1.1rem;
+    }
+    
+    .about-content {
+        padding: 20px;
+    }
+    
+    .highlight-box {
+        padding: 20px;
+    }
+    
+    .mission-box, .vision-box {
+        padding: 25px;
+    }
+}

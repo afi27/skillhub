@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>All Courses - SkillHub</title>
+    <link rel="stylesheet" href="./assets/css/layout.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/about.css" />
+    <link rel="stylesheet" href="./assets/css/auth.css" />
+    <link rel="stylesheet" href="./assets/css/courses.css" />
+    <link rel="stylesheet" href="./assets/css/forms.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Same navbar as index.html -->
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">
+          <i class="fas fa-brain"></i>
+          <span>SkillHub</span>
+        </a>
+
+        <div class="nav-menu" id="navMenu">
+          <a href="index.html" class="nav-link active">Home</a>
+          <a href="courses.html" class="nav-link">Courses</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="testimonials.html" class="nav-link">Success Stories</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+          <a href="login.html" class="btn btn-outline">Sign In</a>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Courses Page Content -->
+    <div class="courses-container">
+      <h1>All Available Courses</h1>
+
+      <!-- Search and Filters -->
+      <div style="text-align: center; margin: 2rem 0">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search courses..."
+          style="
+            padding: 0.8rem;
+            width: 300px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+          "
+        />
+
+        <div style="margin-top: 1rem">
+          <button class="filter-btn" data-category="all">All</button>
+          <button class="filter-btn" data-category="tech">Technology</button>
+          <button class="filter-btn" data-category="design">Design</button>
+          <button class="filter-btn" data-category="business">Business</button>
+        </div>
+      </div>
+
+      <!-- Courses Grid (same as index but expanded) -->
+      <!-- In the courses grid -->
+      <div class="courses-grid" id="coursesContainer">
+        <!-- Courses loaded by JavaScript -->
+      </div>
+
+      <script>
+        // In courses.js, update the displayCourses function:
+        function displayCourses(courses, container) {
+          container.innerHTML = courses
+            .map(
+              (course) => `
+        <div class="course-card">
+            <!-- ... existing content ... -->
+            <div class="course-actions">
+                <a href="course-detail.html?id=${course.id}" class="btn btn-sm btn-outline">
+                    View Details
+                </a>
+                <button class="btn btn-sm btn-primary enroll-btn" data-id="${course.id}">
+                    Enroll Now
+                </button>
+            </div>
+        </div>
+    `
+            )
+            .join("");
+        }
+      </script>
+      <div class="courses-grid" id="allCourses">
+        <!-- Courses will be loaded via JavaScript -->
+      </div>
+    </div>
+
+    <!-- Same footer as index.html -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <a href="index.html" class="footer-logo">
+              <i class="fas fa-brain"></i>
+              <span>SkillHub</span>
+            </a>
+            <p class="footer-desc">
+              Practical digital skills education for the modern creator,
+              entrepreneur, and professional.
+            </p>
+            <div class="social-links">
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="YouTube"
+                ><i class="fab fa-youtube"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-title">Quick Links</h4>
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="courses.html" class="footer-link">All Courses</a>
+            <a href="about.html" class="footer-link">About Us</a>
+            <a href="testimonials.html" class="footer-link">Success Stories</a>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-title">Support</h4>
+            <a href="contact.html" class="footer-link">Contact Us</a>
+            <a href="#" class="footer-link">FAQ</a>
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-title">Newsletter</h4>
+            <p class="footer-text">
+              Get weekly skill-building tips and course updates.
+            </p>
+            <form class="newsletter-form" id="newsletterForm">
+              <input type="email" placeholder="Your email" required />
+              <button type="submit" class="btn btn-sm btn-primary">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 SkillHub. All rights reserved. Built with
+            <i class="fas fa-heart"></i> for learners worldwide.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./assets/js/animations.js"></script>
+    <script src="./assets/js/auth.js"></script>
+    <script src="./assets/js/courses.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/user-dashboard.js"></script>
+  </body>
+</html>

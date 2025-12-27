@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkillHub | Master Digital Skills</title>
+    <link rel="stylesheet" href="./assets/css/layout.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/about.css" />
+    <link rel="stylesheet" href="./assets/css/auth.css" />
+    <link rel="stylesheet" href="./assets/css/courses.css" />
+    <link rel="stylesheet" href="./assets/css/forms.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Theme Toggle -->
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">
+          <i class="fas fa-brain"></i>
+          <span>SkillHub</span>
+        </a>
+
+        <div class="nav-menu" id="navMenu">
+          <a href="index.html" class="nav-link active">Home</a>
+          <a href="courses.html" class="nav-link">Courses</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="testimonials.html" class="nav-link">Success Stories</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+          <a href="login.html" class="btn btn-outline">Sign In</a>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <h1 class="hero-title">Turn Skills Into Income</h1>
+            <p class="hero-subtitle">
+              Learn practical digital skills from industry experts. No fluff,
+              just results you can measure.
+            </p>
+            <div class="hero-buttons">
+              <a href="courses.html" class="btn btn-primary">Browse Courses</a>
+              <a href="#how-it-works" class="btn btn-outline">How It Works</a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat">
+                <span class="stat-number" data-count="12500">12,500+</span>
+                <span class="stat-label">Students Enrolled</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number" data-count="94">94%</span>
+                <span class="stat-label">Success Rate</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number" data-count="24">24/7</span>
+                <span class="stat-label">Mentor Support</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-image">
+            <div class="image-placeholder">
+              <div class="floating-card card-1">
+                <i class="fas fa-chart-line"></i>
+                <span>Real Projects</span>
+              </div>
+              <div class="floating-card card-2">
+                <i class="fas fa-users"></i>
+                <span>Live Community</span>
+              </div>
+              <div class="floating-card card-3">
+                <i class="fas fa-certificate"></i>
+                <span>Certificates</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Courses -->
+    <!-- In the featured courses section -->
+
+    <section class="section courses-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Featured Courses</h2>
+          <p class="section-subtitle">
+            Hands-on courses designed for real-world results
+          </p>
+        </div>
+
+        <div class="courses-grid">
+          <!-- Course 1: Start Dropshipping -->
+          <div class="course-card dropshipping">
+            <div class="course-badge">Most Popular</div>
+            <div class="course-icon">
+              <i class="fas fa-shipping-fast"></i>
+            </div>
+            <h3 class="course-title">Start Dropshipping</h3>
+            <p class="course-desc">
+              Build a profitable online store without inventory. Learn sourcing,
+              marketing, and scaling.
+            </p>
+            <div class="course-meta">
+              <span class="course-duration"
+                ><i class="far fa-clock"></i> 6 Weeks</span
+              >
+              <span class="course-level"
+                ><i class="fas fa-signal"></i> Beginner</span
+              >
+            </div>
+            <div class="course-footer">
+              <span class="course-price">$149</span>
+              <button class="btn btn-sm btn-enroll" data-course="dropshipping">
+                Enroll Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Course 2: Digital Art Pro -->
+          <div class="course-card digital-art">
+            <div class="course-badge">Creative</div>
+            <div class="course-icon">
+              <i class="fas fa-palette"></i>
+            </div>
+            <h3 class="course-title">Digital Art Pro</h3>
+            <p class="course-desc">
+              Master Procreate and digital illustration. From basics to
+              professional artwork.
+            </p>
+            <div class="course-meta">
+              <span class="course-duration"
+                ><i class="far fa-clock"></i> 8 Weeks</span
+              >
+              <span class="course-level"
+                ><i class="fas fa-signal"></i> All Levels</span
+              >
+            </div>
+            <div class="course-footer">
+              <span class="course-price">$199</span>
+              <button class="btn btn-sm btn-enroll" data-course="digital-art">
+                Enroll Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Course 3: Podcast in a Week -->
+          <div class="course-card podcast">
+            <div class="course-badge">Fast Track</div>
+            <div class="course-icon">
+              <i class="fas fa-podcast"></i>
+            </div>
+            <h3 class="course-title">Podcast in a Week</h3>
+            <p class="course-desc">
+              Launch your podcast from zero. Equipment, editing, distribution,
+              and monetization.
+            </p>
+            <div class="course-meta">
+              <span class="course-duration"
+                ><i class="far fa-clock"></i> 1 Week</span
+              >
+              <span class="course-level"
+                ><i class="fas fa-signal"></i> Beginner</span
+              >
+            </div>
+            <div class="course-footer">
+              <span class="course-price">$99</span>
+              <button class="btn btn-sm btn-enroll" data-course="podcast">
+                Enroll Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Course 4: AI Power-Up -->
+          <div class="course-card ai">
+            <div class="course-badge">Trending</div>
+            <div class="course-icon">
+              <i class="fas fa-robot"></i>
+            </div>
+            <h3 class="course-title">AI Power-Up</h3>
+            <p class="course-desc">
+              Leverage AI tools for business & creativity. ChatGPT, Midjourney,
+              and automation.
+            </p>
+            <div class="course-meta">
+              <span class="course-duration"
+                ><i class="far fa-clock"></i> 4 Weeks</span
+              >
+              <span class="course-level"
+                ><i class="fas fa-signal"></i> Intermediate</span
+              >
+            </div>
+            <div class="course-footer">
+              <span class="course-price">$179</span>
+              <button class="btn btn-sm btn-enroll" data-course="ai">
+                Enroll Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Course 5: Phone to Film -->
+          <div class="course-card film">
+            <div class="course-badge">New</div>
+            <div class="course-icon">
+              <i class="fas fa-video"></i>
+            </div>
+            <h3 class="course-title">Phone to Film</h3>
+            <p class="course-desc">
+              Create professional videos with your smartphone. Shooting,
+              editing, and storytelling.
+            </p>
+            <div class="course-meta">
+              <span class="course-duration"
+                ><i class="far fa-clock"></i> 5 Weeks</span
+              >
+              <span class="course-level"
+                ><i class="fas fa-signal"></i> Beginner</span
+              >
+            </div>
+            <div class="course-footer">
+              <span class="course-price">$129</span>
+              <button class="btn btn-sm btn-enroll" data-course="film">
+                Enroll Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center" style="margin-top: 3rem">
+          <a href="courses.html" class="btn btn-secondary">View All Courses</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section how-it-works" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">How SkillHub Works</h2>
+          <p class="section-subtitle">
+            A simple 3-step path to mastering new skills
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step">
+            <div class="step-number">01</div>
+            <div class="step-icon">
+              <i class="fas fa-search"></i>
+            </div>
+            <h3 class="step-title">Choose Your Course</h3>
+            <p class="step-desc">
+              Browse our curated courses and pick one that matches your goals.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">02</div>
+            <div class="step-icon">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <h3 class="step-title">Learn by Doing</h3>
+            <p class="step-desc">
+              Complete practical projects with expert guidance and community
+              support.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">03</div>
+            <div class="step-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <h3 class="step-title">Earn & Apply</h3>
+            <p class="step-desc">
+              Get certified and apply your skills to freelance, business, or
+              career growth.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2 class="cta-title">Ready to Transform Your Skills?</h2>
+          <p class="cta-subtitle">
+            Join thousands who've turned learning into earning
+          </p>
+          <div class="cta-buttons">
+            <a href="signup.html" class="btn btn-primary btn-lg"
+              >Start Free Trial</a
+            >
+            <a href="courses.html" class="btn btn-outline btn-lg"
+              >Browse Courses</a
+            >
+          </div>
+          <p class="cta-note">
+            <i class="fas fa-shield-alt"></i> 14-day money-back guarantee
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <a href="index.html" class="footer-logo">
+              <i class="fas fa-brain"></i>
+              <span>SkillHub</span>
+            </a>
+            <p class="footer-desc">
+              Practical digital skills education for the modern creator,
+              entrepreneur, and professional.
+            </p>
+            <div class="social-links">
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="YouTube"
+                ><i class="fab fa-youtube"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-title">Quick Links</h4>
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="courses.html" class="footer-link">All Courses</a>
+            <a href="about.html" class="footer-link">About Us</a>
+            <a href="testimonials.html" class="footer-link">Success Stories</a>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-title">Support</h4>
+            <a href="contact.html" class="footer-link">Contact Us</a>
+            <a href="#" class="footer-link">FAQ</a>
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-title">Newsletter</h4>
+            <p class="footer-text">
+              Get weekly skill-building tips and course updates.
+            </p>
+            <form class="newsletter-form" id="newsletterForm">
+              <input type="email" placeholder="Your email" required />
+              <button type="submit" class="btn btn-sm btn-primary">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 SkillHub. All rights reserved. Built with
+            <i class="fas fa-heart"></i> for learners worldwide.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="./assets/js/animations.js"></script>
+    <script src="./assets/js/auth.js"></script>
+    <script src="./assets/js/courses.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/user-dashboard.js"></script>
+  </body>
+</html>

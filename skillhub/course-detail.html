@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Details - SkillHub</title>
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="./assets/css/layout.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/about.css" />
+    <link rel="stylesheet" href="./assets/css/auth.css" />
+    <link rel="stylesheet" href="./assets/css/courses.css" />
+    <link rel="stylesheet" href="./assets/css/forms.css" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      /* Additional styles for course detail page */
+      .curriculum-section {
+        margin-top: 3rem;
+      }
+
+      .curriculum-accordion {
+        margin-top: 1.5rem;
+      }
+
+      .accordion-item {
+        background: white;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .dark-mode .accordion-item {
+        background: #1f2937;
+      }
+
+      .accordion-header {
+        padding: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .accordion-header:hover {
+        background: #f9fafb;
+      }
+
+      .dark-mode .accordion-header:hover {
+        background: #374151;
+      }
+
+      .accordion-content {
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .accordion-item.active .accordion-content {
+        max-height: 2000px;
+      }
+
+      .lesson-list {
+        padding: 1.5rem;
+        border-top: 1px solid #e5e7eb;
+      }
+
+      .dark-mode .lesson-list {
+        border-color: #374151;
+      }
+
+      .lesson-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .dark-mode .lesson-item {
+        border-color: #374151;
+      }
+
+      .lesson-item:last-child {
+        border-bottom: none;
+      }
+
+      .lesson-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .lesson-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #dbeafe;
+        color: #2563eb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .dark-mode .lesson-icon {
+        background: #1e40af;
+        color: white;
+      }
+
+      .requirements-section {
+        margin-top: 3rem;
+      }
+
+      .requirements-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .requirements-list li {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+        color: #4b5563;
+      }
+
+      .dark-mode .requirements-list li {
+        color: #d1d5db;
+      }
+
+      .requirements-list i {
+        color: #10b981;
+      }
+
+      .testimonial-section {
+        margin-top: 4rem;
+        background: #f8fafc;
+        padding: 3rem;
+        border-radius: 20px;
+      }
+
+      .dark-mode .testimonial-section {
+        background: #1f2937;
+      }
+
+      .testimonial-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .dark-mode .testimonial-card {
+        background: #374151;
+      }
+
+      .testimonial-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .testimonial-avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(45deg, #f59e0b, #fbbf24);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+      }
+
+      .testimonial-rating {
+        color: #f59e0b;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle">
+      <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Navigation -->
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">
+          <i class="fas fa-brain"></i>
+          <span>SkillHub</span>
+        </a>
+
+        <div class="nav-menu" id="navMenu">
+          <a href="index.html" class="nav-link active">Home</a>
+          <a href="courses.html" class="nav-link">Courses</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="testimonials.html" class="nav-link">Success Stories</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+          <a href="login.html" class="btn btn-outline">Sign In</a>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Course Detail Hero -->
+    <section class="course-detail-hero">
+      <div class="container">
+        <div class="course-detail-header">
+          <div
+            class="course-icon-large"
+            style="
+              background: #f59e0b;
+              width: 80px;
+              height: 80px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin: 0 auto 1.5rem;
+              color: white;
+              font-size: 2rem;
+            "
+          >
+            <i class="fas fa-shipping-fast"></i>
+          </div>
+          <h1>Start Dropshipping</h1>
+          <p>
+            Build a profitable online store without inventory. Learn sourcing,
+            marketing, and scaling strategies from industry experts.
+          </p>
+
+          <div class="course-detail-meta">
+            <div class="meta-card">
+              <i class="fas fa-user"></i>
+              <span>Instructor</span>
+              <strong>Alex Morgan</strong>
+            </div>
+            <div class="meta-card">
+              <i class="fas fa-clock"></i>
+              <span>Duration</span>
+              <strong>6 Weeks</strong>
+            </div>
+            <div class="meta-card">
+              <i class="fas fa-signal"></i>
+              <span>Level</span>
+              <strong>Beginner</strong>
+            </div>
+            <div class="meta-card">
+              <i class="fas fa-users"></i>
+              <span>Students</span>
+              <strong>1,240</strong>
+            </div>
+          </div>
+
+          <div
+            style="
+              display: flex;
+              gap: 1rem;
+              justify-content: center;
+              flex-wrap: wrap;
+            "
+          >
+            <button class="btn btn-primary btn-lg" id="enrollButton">
+              <i class="fas fa-shopping-cart"></i> Enroll Now - $149
+            </button>
+            <button class="btn btn-outline btn-lg" id="wishlistButton">
+              <i class="far fa-heart"></i> Add to Wishlist
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Course Content -->
+    <section class="course-content">
+      <div class="container">
+        <div class="course-content-grid">
+          <!-- Main Content -->
+          <div class="course-main">
+            <!-- Overview -->
+            <div class="course-section">
+              <h2>Course Overview</h2>
+              <p>
+                This comprehensive dropshipping course takes you from complete
+                beginner to running a profitable online store. You'll learn
+                everything from product research and store setup to marketing
+                and scaling strategies.
+              </p>
+
+              <h3 style="margin-top: 2rem">What You'll Achieve</h3>
+              <ul style="list-style: none; padding: 0; margin-top: 1rem">
+                <li
+                  style="
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 0.75rem;
+                    margin-bottom: 0.75rem;
+                  "
+                >
+                  <i
+                    class="fas fa-check"
+                    style="color: #10b981; margin-top: 0.25rem"
+                  ></i>
+                  <span>Launch your first profitable dropshipping store</span>
+                </li>
+                <li
+                  style="
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 0.75rem;
+                    margin-bottom: 0.75rem;
+                  "
+                >
+                  <i
+                    class="fas fa-check"
+                    style="color: #10b981; margin-top: 0.25rem"
+                  ></i>
+                  <span>Master Facebook and Instagram advertising</span>
+                </li>
+                <li
+                  style="
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 0.75rem;
+                    margin-bottom: 0.75rem;
+                  "
+                >
+                  <i
+                    class="fas fa-check"
+                    style="color: #10b981; margin-top: 0.25rem"
+                  ></i>
+                  <span>Automate order fulfillment and customer service</span>
+                </li>
+                <li
+                  style="
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 0.75rem;
+                    margin-bottom: 0.75rem;
+                  "
+                >
+                  <i
+                    class="fas fa-check"
+                    style="color: #10b981; margin-top: 0.25rem"
+                  ></i>
+                  <span>Scale to $10,000+ per month in revenue</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Curriculum -->
+            <div class="curriculum-section">
+              <h2>Course Curriculum</h2>
+              <p>
+                6 weeks of intensive, practical learning with hands-on projects
+              </p>
+
+              <div class="curriculum-accordion">
+                <!-- Week 1 -->
+                <div class="accordion-item">
+                  <div class="accordion-header">
+                    <div>
+                      <h3 style="margin: 0">Week 1: Foundation & Research</h3>
+                      <p
+                        style="
+                          margin: 0.25rem 0 0;
+                          color: #6b7280;
+                          font-size: 0.95rem;
+                        "
+                      >
+                        5 lessons • 2 hours 30 minutes
+                      </p>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                  </div>
+                  <div class="accordion-content">
+                    <div class="lesson-list">
+                      <div class="lesson-item">
+                        <div class="lesson-info">
+                          <div class="lesson-icon">
+                            <i class="fas fa-play-circle"></i>
+                          </div>
+                          <div>
+                            <h4 style="margin: 0">
+                              Introduction to Dropshipping
+                            </h4>
+                            <p
+                              style="
+                                margin: 0.25rem 0 0;
+                                color: #6b7280;
+                                font-size: 0.875rem;
+                              "
+                            >
+                              What is dropshipping and why it works
+                            </p>
+                          </div>
+                        </div>
+                        <span style="color: #6b7280; font-size: 0.875rem"
+                          >25 min</span
+                        >
+                      </div>
+
+                      <div class="lesson-item">
+                        <div class="lesson-info">
+                          <div class="lesson-icon">
+                            <i class="fas fa-chart-line"></i>
+                          </div>
+                          <div>
+                            <h4 style="margin: 0">
+                              Market Research Fundamentals
+                            </h4>
+                            <p
+                              style="
+                                margin: 0.25rem 0 0;
+                                color: #6b7280;
+                                font-size: 0.875rem;
+                              "
+                            >
+                              Finding profitable niches and products
+                            </p>
+                          </div>
+                        </div>
+                        <span style="color: #6b7280; font-size: 0.875rem"
+                          >35 min</span
+                        >
+                      </div>
+
+                      <div class="lesson-item">
+                        <div class="lesson-info">
+                          <div class="lesson-icon">
+                            <i class="fas fa-tasks"></i>
+                          </div>
+                          <div>
+                            <h4 style="margin: 0">Project: Product Analysis</h4>
+                            <p
+                              style="
+                                margin: 0.25rem 0 0;
+                                color: #6b7280;
+                                font-size: 0.875rem;
+                              "
+                            >
+                              Analyze 5 potential winning products
+                            </p>
+                          </div>
+                        </div>
+                        <span style="color: #6b7280; font-size: 0.875rem"
+                          >45 min</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Week 2 -->
+                <div class="accordion-item">
+                  <div class="accordion-header">
+                    <div>
+                      <h3 style="margin: 0">Week 2: Store Setup</h3>
+                      <p
+                        style="
+                          margin: 0.25rem 0 0;
+                          color: #6b7280;
+                          font-size: 0.95rem;
+                        "
+                      >
+                        6 lessons • 3 hours 15 minutes
+                      </p>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                  </div>
+                  <div class="accordion-content">
+                    <!-- Lesson content similar to Week 1 -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Requirements -->
+            <div class="requirements-section">
+              <h2>Requirements</h2>
+              <p>What you need to get started with this course:</p>
+
+              <ul class="requirements-list">
+                <li><i class="fas fa-check"></i> Basic computer skills</li>
+                <li><i class="fas fa-check"></i> Internet connection</li>
+                <li>
+                  <i class="fas fa-check"></i> No prior business experience
+                  needed
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> Willingness to learn and
+                  implement
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> Budget for testing products
+                  ($200-500 recommended)
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="course-sidebar">
+            <!-- Enrollment Card -->
+            <div class="enrollment-card">
+              <h3>Enroll in This Course</h3>
+
+              <div class="enrollment-price">
+                $149
+                <span style="font-size: 1rem; color: #6b7280"
+                  >one-time payment</span
+                >
+              </div>
+
+              <ul class="enrollment-features">
+                <li>
+                  <i class="fas fa-check"></i> Lifetime access to course
+                  materials
+                </li>
+                <li><i class="fas fa-check"></i> 6 weeks of video lessons</li>
+                <li>
+                  <i class="fas fa-check"></i> Downloadable resources &
+                  templates
+                </li>
+                <li><i class="fas fa-check"></i> Certificate of completion</li>
+                <li>
+                  <i class="fas fa-check"></i> Access to private community
+                </li>
+                <li><i class="fas fa-check"></i> Weekly Q&A sessions</li>
+              </ul>
+
+              <button
+                class="btn btn-primary btn-lg enrollment-button"
+                id="sidebarEnrollButton"
+              >
+                <i class="fas fa-shopping-cart"></i> Enroll Now
+              </button>
+
+              <p
+                style="
+                  text-align: center;
+                  margin-top: 1rem;
+                  color: #6b7280;
+                  font-size: 0.875rem;
+                "
+              >
+                <i class="fas fa-shield-alt"></i> 30-day money-back guarantee
+              </p>
+            </div>
+
+            <!-- Instructor Card -->
+            <div class="instructor-card">
+              <div class="instructor-header">
+                <div class="instructor-avatar">
+                  <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="instructor-info">
+                  <h3>Alex Morgan</h3>
+                  <div class="instructor-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>4.8 Instructor Rating</span>
+                  </div>
+                </div>
+              </div>
+
+              <p class="instructor-bio">
+                Former Shopify store owner who scaled to $2M/year in revenue.
+                Now teaching 10,000+ students how to start successful online
+                businesses.
+              </p>
+
+              <div class="instructor-stats">
+                <div class="stat-item">
+                  <span class="stat-number">10K+</span>
+                  <span class="stat-label">Students</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">28</span>
+                  <span class="stat-label">Courses</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">4.8</span>
+                  <span class="stat-label">Avg Rating</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">5</span>
+                  <span class="stat-label">Years Exp</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonial-section">
+      <div class="container">
+        <h2 style="text-align: center; margin-bottom: 3rem">
+          What Students Say
+        </h2>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div>
+              <h3 style="margin: 0">Sarah Johnson</h3>
+              <div class="testimonial-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p>
+            "This course changed my life. I went from working a 9-5 job to
+            running my own store making $8,000/month. The Facebook ads section
+            alone was worth the price!"
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Courses -->
+    <section class="related-courses">
+      <div class="container">
+        <h2>You Might Also Like</h2>
+        <div class="courses-grid" id="relatedCourses">
+          <!-- Related courses will be loaded here by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <a href="index.html" class="footer-logo">
+              <i class="fas fa-brain"></i>
+              <span>SkillHub</span>
+            </a>
+            <p class="footer-desc">
+              Practical digital skills education for the modern creator,
+              entrepreneur, and professional.
+            </p>
+            <div class="social-links">
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="YouTube"
+                ><i class="fab fa-youtube"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-title">Quick Links</h4>
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="courses.html" class="footer-link">All Courses</a>
+            <a href="about.html" class="footer-link">About Us</a>
+            <a href="testimonials.html" class="footer-link">Success Stories</a>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-title">Support</h4>
+            <a href="contact.html" class="footer-link">Contact Us</a>
+            <a href="#" class="footer-link">FAQ</a>
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-title">Newsletter</h4>
+            <p class="footer-text">
+              Get weekly skill-building tips and course updates.
+            </p>
+            <form class="newsletter-form" id="newsletterForm">
+              <input type="email" placeholder="Your email" required />
+              <button type="submit" class="btn btn-sm btn-primary">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 SkillHub. All rights reserved. Built with
+            <i class="fas fa-heart"></i> for learners worldwide.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Core JS -->
+    <script src="./assets/js/animations.js"></script>
+    <script src="./assets/js/auth.js"></script>
+    <script src="./assets/js/courses.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/user-dashboard.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize theme toggle and mobile menu
+        if (typeof initThemeToggle === "function") initThemeToggle();
+        if (typeof initMobileMenu === "function") initMobileMenu();
+
+        // Accordion functionality
+        const accordionHeaders = document.querySelectorAll(".accordion-header");
+        accordionHeaders.forEach((header) => {
+          header.addEventListener("click", function () {
+            const accordionItem = this.parentElement;
+            accordionItem.classList.toggle("active");
+
+            // Toggle icon
+            const icon = this.querySelector("i");
+            if (icon) {
+              icon.className = accordionItem.classList.contains("active")
+                ? "fas fa-chevron-up"
+                : "fas fa-chevron-down";
+            }
+          });
+        });
+
+        // Enroll button functionality
+        const enrollButtons = document.querySelectorAll(
+          "#enrollButton, #sidebarEnrollButton"
+        );
+        enrollButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const courseId = 1; // This would come from URL parameters
+            if (typeof enrollInCourse === "function") {
+              enrollInCourse(courseId);
+            } else {
+              alert("Enrollment system loading...");
+            }
+          });
+        });
+
+        // Wishlist button
+        const wishlistButton = document.getElementById("wishlistButton");
+        if (wishlistButton) {
+          wishlistButton.addEventListener("click", function () {
+            const courseId = 1;
+            if (typeof toggleWishlist === "function") {
+              toggleWishlist(courseId);
+              // Update button icon
+              const icon = this.querySelector("i");
+              if (icon) {
+                icon.className = icon.className.includes("far")
+                  ? "fas fa-heart"
+                  : "far fa-heart";
+              }
+            }
+          });
+        }
+
+        // Load related courses
+        const relatedCoursesContainer =
+          document.getElementById("relatedCourses");
+        if (relatedCoursesContainer && typeof displayCourses === "function") {
+          // Get 3 random courses (excluding current course)
+          const relatedCourses = window.coursesData
+            ? window.coursesData.filter((course) => course.id !== 1).slice(0, 3)
+            : [
+                {
+                  id: 2,
+                  title: "Digital Art Pro",
+                  description: "Master Procreate and digital illustration",
+                  instructor: "Sarah Chen",
+                  price: 199,
+                  rating: 4.9,
+                  students: 2150,
+                  duration: "8 Weeks",
+                  level: "All Levels",
+                  color: "#8b5cf6",
+                  icon: "fa-palette",
+                },
+                {
+                  id: 4,
+                  title: "AI Power-Up",
+                  description: "Leverage AI tools for business & creativity",
+                  instructor: "Priya Sharma",
+                  price: 179,
+                  rating: 4.8,
+                  students: 3150,
+                  duration: "4 Weeks",
+                  level: "Intermediate",
+                  color: "#10b981",
+                  icon: "fa-robot",
+                },
+                {
+                  id: 6,
+                  title: "Web Development Bootcamp",
+                  description:
+                    "Learn HTML, CSS, JavaScript and build 5 real projects",
+                  instructor: "Michael Rodriguez",
+                  price: 249,
+                  rating: 4.9,
+                  students: 4250,
+                  duration: "12 Weeks",
+                  level: "Beginner",
+                  color: "#2563eb",
+                  icon: "fa-code",
+                },
+              ];
+
+          displayCourses(relatedCourses, relatedCoursesContainer);
+        }
+
+        // Check if user is already enrolled
+        function checkEnrollmentStatus() {
+          try {
+            const enrolledCourses =
+              JSON.parse(localStorage.getItem("skillhub_enrolled_courses")) ||
+              [];
+            const isEnrolled = enrolledCourses.some(
+              (course) => course.id === 1
+            );
+
+            if (isEnrolled) {
+              enrollButtons.forEach((button) => {
+                button.innerHTML =
+                  '<i class="fas fa-check"></i> Already Enrolled';
+                button.classList.remove("btn-primary");
+                button.classList.add("btn-secondary");
+                button.disabled = true;
+              });
+            }
+          } catch (e) {
+            console.log("Could not check enrollment status");
+          }
+        }
+
+        checkEnrollmentStatus();
+
+        // Check wishlist status
+        function checkWishlistStatus() {
+          try {
+            const wishlist =
+              JSON.parse(localStorage.getItem("skillhub_wishlist")) || [];
+            const inWishlist = wishlist.some((item) => item.id === 1);
+
+            if (inWishlist && wishlistButton) {
+              const icon = wishlistButton.querySelector("i");
+              if (icon) {
+                icon.className = "fas fa-heart";
+                icon.style.color = "#ef4444";
+              }
+              wishlistButton.querySelector("span").textContent = "In Wishlist";
+            }
+          } catch (e) {
+            console.log("Could not check wishlist status");
+          }
+        }
+
+        checkWishlistStatus();
+      });
+    </script>
+  </body>
+</html>
