@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>All Courses - SkillHub</title>
+    <title>Contact Us - SkillHub</title>
     <link rel="stylesheet" href="./assets/css/layout.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/about.css" />
@@ -17,7 +16,11 @@
     />
   </head>
   <body>
-    <!-- Same navbar as index.html -->
+    <button class="theme-toggle" id="themeToggle">
+      <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Navigation -->
     <!-- Navigation -->
     <nav class="navbar">
       <div class="container nav-container">
@@ -41,66 +44,178 @@
       </div>
     </nav>
 
-    <!-- Courses Page Content -->
-    <div class="courses-container">
-      <h1>All Available Courses</h1>
-
-      <!-- Search and Filters -->
-      <div style="text-align: center; margin: 2rem 0">
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Search courses..."
-          style="
-            padding: 0.8rem;
-            width: 300px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-          "
-        />
-
-        <div style="margin-top: 1rem">
-          <button class="filter-btn" data-category="all">All</button>
-          <button class="filter-btn" data-category="tech">Technology</button>
-          <button class="filter-btn" data-category="design">Design</button>
-          <button class="filter-btn" data-category="business">Business</button>
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-header">
+          <h1>Get in Touch</h1>
+          <p>Have questions? We're here to help you succeed.</p>
         </div>
-      </div>
 
-      <!-- Courses Grid (same as index but expanded) -->
-      <!-- In the courses grid -->
-      <div class="courses-grid" id="coursesContainer">
-        <!-- Courses loaded by JavaScript -->
-      </div>
+        <div class="contact-grid">
+          <div class="contact-form-container">
+            <h2>Send us a Message</h2>
+            <form class="contact-form" id="contactForm">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" placeholder="Your name" required />
+                <div class="error-message" id="nameError"></div>
+              </div>
 
-      <script>
-        // In courses.js, update the displayCourses function:
-        function displayCourses(courses, container) {
-          container.innerHTML = courses
-            .map(
-              (course) => `
-        <div class="course-card">
-            <!-- ... existing content ... -->
-            <div class="course-actions">
-                <a href="course-detail.html?id=${course.id}" class="btn btn-sm btn-outline">
-                    View Details
-                </a>
-                <button class="btn btn-sm btn-primary enroll-btn" data-id="${course.id}">
-                    Enroll Now
-                </button>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="you@example.com"
+                  required
+                />
+                <div class="error-message" id="emailError"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject *</label>
+                <select id="subject" required>
+                  <option value="">Select a topic</option>
+                  <option value="course">Course Inquiry</option>
+                  <option value="technical">Technical Support</option>
+                  <option value="billing">Billing & Payment</option>
+                  <option value="feedback">Feedback & Suggestions</option>
+                  <option value="partnership">Partnership Opportunity</option>
+                  <option value="other">Other</option>
+                </select>
+                <div class="error-message" id="subjectError"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Your Message *</label>
+                <textarea
+                  id="message"
+                  rows="6"
+                  placeholder="How can we help you?"
+                  required
+                ></textarea>
+                <div class="error-message" id="messageError"></div>
+              </div>
+
+              <div class="form-group">
+                <label class="checkbox">
+                  <input type="checkbox" id="newsletter" checked />
+                  <span
+                    >Send me updates about new courses and learning tips</span
+                  >
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">
+                <i class="fas fa-paper-plane"></i> Send Message
+              </button>
+            </form>
+          </div>
+
+          <div class="contact-info-container">
+            <div class="contact-info">
+              <h2>Contact Information</h2>
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                  <h3>Our Office</h3>
+                  <p>123 Learning Street<br />Digital City, DC 10001</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div>
+                  <h3>Phone Number</h3>
+                  <p>+1 (555) 123-4567<br />Mon-Fri, 9AM-6PM EST</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                  <h3>Email Address</h3>
+                  <p>hello@skillhub.com<br />support@skillhub.com</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div>
+                  <h3>Response Time</h3>
+                  <p>
+                    We typically respond within<br />2 hours during business
+                    hours
+                  </p>
+                </div>
+              </div>
             </div>
-        </div>
-    `
-            )
-            .join("");
-        }
-      </script>
-      <div class="courses-grid" id="allCourses">
-        <!-- Courses will be loaded via JavaScript -->
-      </div>
-    </div>
 
-    <!-- Same footer as index.html -->
+            <div class="faq-section">
+              <h3>Frequently Asked Questions</h3>
+              <div class="faq-item">
+                <button class="faq-question">
+                  How do I enroll in a course?
+                </button>
+                <div class="faq-answer">
+                  <p>
+                    Click any "Enroll Now" button, create an account, and
+                    complete payment. You'll get instant access to the course
+                    materials.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">What's your refund policy?</button>
+                <div class="faq-answer">
+                  <p>
+                    We offer a 14-day money-back guarantee. If you're
+                    unsatisfied, email us within 14 days of purchase for a full
+                    refund.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  Do courses have certificates?
+                </button>
+                <div class="faq-answer">
+                  <p>
+                    Yes! Complete any course and pass the final project to
+                    receive a verified digital certificate you can share.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="map-section">
+      <div class="container">
+        <h2>Find Our Office</h2>
+        <div class="map-placeholder">
+          <div class="map-content">
+            <i class="fas fa-map-marked-alt fa-3x"></i>
+            <h3>Visit Our Learning Center</h3>
+            <p>123 Learning Street, Digital City</p>
+            <p>Open: Mon-Fri 9AM-6PM | Sat 10AM-4PM</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <footer class="footer">
       <div class="container">
         <div class="footer-grid">
@@ -173,5 +288,123 @@
     <script src="./assets/js/courses.js"></script>
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/user-dashboard.js"></script>
+    <script>
+      // Contact form handling
+      document.addEventListener("DOMContentLoaded", function () {
+        const contactForm = document.getElementById("contactForm");
+
+        if (contactForm) {
+          contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = {
+              name: document.getElementById("name").value.trim(),
+              email: document.getElementById("email").value.trim(),
+              subject: document.getElementById("subject").value,
+              message: document.getElementById("message").value.trim(),
+              newsletter: document.getElementById("newsletter").checked,
+            };
+
+            // Validate
+            let isValid = true;
+
+            // Clear errors
+            document.querySelectorAll(".error-message").forEach((el) => {
+              el.textContent = "";
+            });
+
+            if (!formData.name) {
+              document.getElementById("nameError").textContent =
+                "Name is required";
+              isValid = false;
+            }
+
+            if (!formData.email) {
+              document.getElementById("emailError").textContent =
+                "Email is required";
+              isValid = false;
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+              document.getElementById("emailError").textContent =
+                "Please enter a valid email";
+              isValid = false;
+            }
+
+            if (!formData.subject) {
+              document.getElementById("subjectError").textContent =
+                "Please select a subject";
+              isValid = false;
+            }
+
+            if (!formData.message) {
+              document.getElementById("messageError").textContent =
+                "Message is required";
+              isValid = false;
+            } else if (formData.message.length < 10) {
+              document.getElementById("messageError").textContent =
+                "Please provide more details";
+              isValid = false;
+            }
+
+            if (!isValid) return;
+
+            // Simulate form submission
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+
+            submitBtn.innerHTML =
+              '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+              // Show success
+              submitBtn.innerHTML =
+                '<i class="fas fa-check"></i> Sent Successfully!';
+              submitBtn.style.background = "#10b981";
+
+              // Show notification
+              if (typeof showNotification === "function") {
+                showNotification(
+                  "Message sent! We'll respond within 24 hours.",
+                  "success"
+                );
+              } else {
+                alert("Message sent! We'll respond within 24 hours.");
+              }
+
+              // Reset form
+              contactForm.reset();
+
+              // Reset button after 3 seconds
+              setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                submitBtn.style.background = "";
+              }, 3000);
+            }, 2000);
+          });
+        }
+
+        // FAQ toggle
+        document.querySelectorAll(".faq-question").forEach((question) => {
+          question.addEventListener("click", function () {
+            const answer = this.nextElementSibling;
+            const isActive = this.classList.contains("active");
+
+            // Close all FAQs
+            document.querySelectorAll(".faq-question").forEach((q) => {
+              q.classList.remove("active");
+              q.nextElementSibling.style.display = "none";
+            });
+
+            // Open clicked FAQ if it wasn't active
+            if (!isActive) {
+              this.classList.add("active");
+              answer.style.display = "block";
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>
