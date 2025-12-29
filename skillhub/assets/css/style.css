@@ -5,11 +5,457 @@
     box-sizing: border-box;
 }
 
-/* Add this to your style.css file OR user-profile.html ke <style> tag me */
+/* ===== CONTACT PAGE STYLES ===== */
+
+/* Contact Section */
+.contact-section {
+  padding: 5rem 0;
+  background: var(--background-light);
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.contact-header h1 {
+  font-size: 3rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.contact-header p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Contact Grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Contact Form */
+.contact-form-container {
+  background: var(--background-white);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-medium);
+}
+
+.contact-form-container h2 {
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.contact-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: var(--background-white);
+  color: var(--text-primary);
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Checkbox Styling */
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary-color);
+}
+
+.checkbox span {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* Error Messages */
+.error-message {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  min-height: 20px;
+}
+
+/* Contact Info */
+.contact-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.contact-info {
+  background: var(--background-white);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-medium);
+}
+
+.contact-info h2 {
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.info-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--primary-light);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.info-item h3 {
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  font-size: 1.1rem;
+}
+
+.info-item p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* FAQ Section */
+.faq-section {
+  background: var(--background-white);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-medium);
+}
+
+.faq-section h3 {
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.faq-item {
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.faq-item:last-child {
+  margin-bottom: 0;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 1.25rem;
+  background: var(--background-light);
+  border: none;
+  text-align: left;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+  background: var(--background-hover);
+}
+
+.faq-question.active {
+  background: var(--primary-light);
+  color: var(--primary-color);
+}
+
+.faq-question::after {
+  content: "+";
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.faq-question.active::after {
+  content: "−";
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-question.active + .faq-answer {
+  padding: 1.25rem;
+  max-height: 500px;
+}
+
+.faq-answer p {
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Map Section */
+.map-section {
+  padding: 5rem 0;
+  background: var(--background-light);
+  text-align: center;
+}
+
+.map-section h2 {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.map-placeholder {
+  height: 400px;
+  background: var(--background-white);
+  border-radius: 12px;
+  box-shadow: var(--shadow-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.map-content {
+  text-align: center;
+}
+
+.map-content i {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.map-content h3 {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.map-content p {
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .contact-header h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 3rem 0;
+  }
+  
+  .contact-header {
+    margin-bottom: 3rem;
+  }
+  
+  .contact-header h1 {
+    font-size: 2rem;
+  }
+  
+  .contact-form-container,
+  .contact-info,
+  .faq-section {
+    padding: 1.5rem;
+  }
+  
+  .map-section h2 {
+    font-size: 2rem;
+  }
+  
+  .map-placeholder {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .contact-form-container h2,
+  .contact-info h2 {
+    font-size: 1.5rem;
+  }
+  
+  .info-item {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .info-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .contact-form-container,
+  .contact-info,
+  .faq-section,
+  .map-placeholder {
+    background: var(--background-dark);
+    border: 1px solid var(--border-dark);
+  }
+  
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    background: var(--background-dark);
+    border-color: var(--border-dark);
+    color: var(--text-primary);
+  }
+  
+  .faq-question {
+    background: var(--background-dark);
+  }
+  
+  .faq-question:hover {
+    background: var(--background-hover);
+  }
+}
+
+/* Animation for form submission */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-form-container,
+.contact-info,
+.faq-section {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+:root {
+  /* Colors */
+  --primary-color: #4f46e5;
+  --primary-light: #e0e7ff;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --background-white: #ffffff;
+  --background-light: #f9fafb;
+  --background-hover: #f3f4f6;
+  --border-color: #d1d5db;
+  
+  /* Dark mode variables */
+  --background-dark: #1f2937;
+  --border-dark: #374151;
+  
+  /* Shadows */
+  --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --background-light: #111827;
+    --background-hover: #374151;
+  }
+}
+
+/* Navigation Container */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+/* Logo in Navbar */
+.navbar .logo {
+    font-size: 1.4rem; /* Slightly smaller */
+}
+
+.navbar .logo-img {
+    height: 36px; /* Consistent size */
+    width: auto;
+}
 
 /* Fix for profile page logo */
 .user-profile .navbar .logo img {
-  height: 30px !important; /* Logo ko chota karo */
+  height: 30px !important; 
   width: auto !important;
   vertical-align: middle !important;
 }
