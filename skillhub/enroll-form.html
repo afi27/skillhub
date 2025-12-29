@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enroll Now - SkillHub</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/forms.css">
+    <link rel="stylesheet" href="./assets/css/enrollment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    /* ===== PERFECT LOGO SIZE FOR ENROLLMENT PAGE ===== */
+    
+    /* Header Logo - Perfect Size */
+    .navbar .logo {
+        display: flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+    
+    .navbar .logo-img {
+        height: 85px !important;
+        width: auto !important;
+        object-fit: contain !important;
+    }
+    
+    .navbar .logo span {
+        font-size: 1.9rem !important;
+        font-weight: 800 !important;
+        color: #1f2937 !important;
+    }
+    
+    /* Footer Logo - Slightly Larger */
+    .footer-logo {
+        display: flex !important;
+        align-items: center !important;
+        gap: 15px !important;
+        margin-bottom: 25px !important;
+    }
+    
+    .footer-logo .logo-img {
+        height: 85px !important;
+        width: auto !important;
+        object-fit: contain !important;
+    }
+    
+    .footer-logo span {
+        font-size: 2.1rem !important;
+        font-weight: 800 !important;
+        color: white !important;
+    }
+    
+    /* For dark mode */
+    .dark-mode .navbar .logo span {
+        color: #f9fafb !important;
+    }
+</style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="./assets/imgs/logo.png" alt="SkillHub" class="logo-img">
+                
+            </a>
+
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="courses.html" class="nav-link">Courses</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="testimonials.html" class="nav-link">Success Stories</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <div class="nav-buttons">
+                    <a href="login.html" class="btn btn-outline">
+                        <i class="fas fa-user"></i> Sign In
+                    </a>
+                    <a href="user-profile.html" class="btn btn-primary">
+                        <i class="fas fa-user-circle"></i> My Profile
+                    </a>
+                </div>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Enrollment Page -->
+    <main class="enrollment-page">
+        <div class="container">
+            <!-- Progress Steps -->
+            <div class="enrollment-steps">
+                <div class="step active">
+                    <div class="step-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Course Selection</div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-user-edit"></i>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Your Details</div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Payment</div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-number">4</div>
+                        <div class="step-label">Confirmation</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="enrollment-grid">
+                <!-- Course Summary Card -->
+                <aside class="course-summary-card">
+                    <div class="course-summary-header">
+                        <h3 id="courseTitle">Course Title</h3>
+                        <div class="course-badge" id="courseBadge">Most Popular</div>
+                    </div>
+                    
+                    <div class="course-thumbnail">
+                        <img id="courseThumbnail" src="./assets/imgs/thumnail1.png" alt="Course Thumbnail">
+                    </div>
+                    
+                    <div class="course-details">
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span id="courseDuration">6 Weeks</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-signal"></i>
+                            <span id="courseLevel">Beginner</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-user-graduate"></i>
+                            <span id="courseInstructor">Expert Instructor</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>Certificate Included</span>
+                        </div>
+                    </div>
+                    
+                    <div class="course-price-box">
+                        <div class="price-header">
+                            <span class="price-label">Total Amount</span>
+                            <span class="original-price" id="originalPrice">PKR 35,000</span>
+                        </div>
+                        <div class="current-price" id="coursePrice">PKR 30,000</div>
+                        <div class="discount-badge" id="discountBadge">Save PKR 5,000</div>
+                    </div>
+                    
+                    <div class="features-list">
+                        <h4>What's Included:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Lifetime Course Access</li>
+                            <li><i class="fas fa-check"></i> Downloadable Resources</li>
+                            <li><i class="fas fa-check"></i> Certificate of Completion</li>
+                            <li><i class="fas fa-check"></i> 24/7 Support</li>
+                            <li><i class="fas fa-check"></i> Community Access</li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Enrollment Form -->
+                <div class="enrollment-form-container">
+                    <div class="form-header">
+                        <h2>Complete Your Enrollment</h2>
+                        <p>Fill in your details to enroll in the course</p>
+                    </div>
+
+                    <form id="enrollmentForm" class="enrollment-form">
+                        <!-- Personal Information -->
+                        <section class="form-section">
+                            <h3 class="section-title">
+                                <i class="fas fa-user-circle"></i>
+                                Personal Information
+                            </h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName" class="required">First Name</label>
+                                    <input type="text" id="firstName" class="form-control" placeholder="Enter your first name" required>
+                                    <span class="error-feedback" id="firstNameError"></span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="lastName" class="required">Last Name</label>
+                                    <input type="text" id="lastName" class="form-control" placeholder="Enter your last name" required>
+                                    <span class="error-feedback" id="lastNameError"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email" class="required">Email Address</label>
+                                    <input type="email" id="email" class="form-control" placeholder="your.email@example.com" required>
+                                    <span class="error-feedback" id="emailError"></span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone" class="required">Phone Number</label>
+                                    <input type="tel" id="phone" class="form-control" placeholder="+92 300 1234567" required>
+                                    <span class="error-feedback" id="phoneError"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="cnic" class="required">CNIC/NICOP Number</label>
+                                <input type="text" id="cnic" class="form-control" placeholder="XXXXX-XXXXXXX-X" required>
+                                <span class="error-feedback" id="cnicError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address" class="required">Address</label>
+                                <textarea id="address" class="form-control" rows="3" placeholder="Enter your complete address" required></textarea>
+                                <span class="error-feedback" id="addressError"></span>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city" class="required">City</label>
+                                    <input type="text" id="city" class="form-control" placeholder="e.g., Karachi, Lahore" required>
+                                    <span class="error-feedback" id="cityError"></span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="country" class="required">Country</label>
+                                    <select id="country" class="form-control form-control-select" required>
+                                        <option value="">Select Country</option>
+                                        <option value="Pakistan" selected>Pakistan</option>
+                                        <option value="India">India</option>
+                                        <option value="USA">United States</option>
+                                        <option value="UK">United Kingdom</option>
+                                        <option value="UAE">United Arab Emirates</option>
+                                        <option value="Canada">Canada</option>
+                                        <option value="Australia">Australia</option>
+                                    </select>
+                                    <span class="error-feedback" id="countryError"></span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Education & Background -->
+                        <section class="form-section">
+                            <h3 class="section-title">
+                                <i class="fas fa-graduation-cap"></i>
+                                Education & Background
+                            </h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="education">Highest Education</label>
+                                    <select id="education" class="form-control form-control-select">
+                                        <option value="">Select Education Level</option>
+                                        <option value="matric">Matric/O-Levels</option>
+                                        <option value="intermediate">Intermediate/A-Levels</option>
+                                        <option value="bachelor">Bachelor's Degree</option>
+                                        <option value="master">Master's Degree</option>
+                                        <option value="phd">PhD</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="occupation">Current Occupation</label>
+                                    <select id="occupation" class="form-control form-control-select">
+                                        <option value="">Select Occupation</option>
+                                        <option value="student">Student</option>
+                                        <option value="employed">Employed</option>
+                                        <option value="self-employed">Self-Employed</option>
+                                        <option value="unemployed">Unemployed</option>
+                                        <option value="freelancer">Freelancer</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="experience">Previous Experience (if any)</label>
+                                <textarea id="experience" class="form-control" rows="3" placeholder="Briefly describe any relevant experience"></textarea>
+                            </div>
+                        </section>
+
+                        <!-- Payment Information -->
+                        <section class="form-section">
+                            <h3 class="section-title">
+                                <i class="fas fa-credit-card"></i>
+                                Payment Information
+                            </h3>
+                            
+                            <div class="payment-methods">
+                                <div class="payment-options-grid">
+                                    <div class="payment-option active" data-method="easypaisa">
+                                        <div class="payment-icon">
+                                            <i class="fas fa-mobile-alt"></i>
+                                        </div>
+                                        <div class="payment-info">
+                                            <div class="payment-name">EasyPaisa</div>
+                                            <div class="payment-desc">Pay via Mobile Account</div>
+                                        </div>
+                                        <div class="payment-radio">
+                                            <input type="radio" name="paymentMethod" value="easypaisa" checked>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="payment-option" data-method="jazzcash">
+                                        <div class="payment-icon">
+                                            <i class="fas fa-wallet"></i>
+                                        </div>
+                                        <div class="payment-info">
+                                            <div class="payment-name">JazzCash</div>
+                                            <div class="payment-desc">Pay via JazzCash Wallet</div>
+                                        </div>
+                                        <div class="payment-radio">
+                                            <input type="radio" name="paymentMethod" value="jazzcash">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="payment-option" data-method="card">
+                                        <div class="payment-icon">
+                                            <i class="fas fa-credit-card"></i>
+                                        </div>
+                                        <div class="payment-info">
+                                            <div class="payment-name">Credit/Debit Card</div>
+                                            <div class="payment-desc">Visa, MasterCard, etc.</div>
+                                        </div>
+                                        <div class="payment-radio">
+                                            <input type="radio" name="paymentMethod" value="card">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="payment-option" data-method="bank">
+                                        <div class="payment-icon">
+                                            <i class="fas fa-university"></i>
+                                        </div>
+                                        <div class="payment-info">
+                                            <div class="payment-name">Bank Transfer</div>
+                                            <div class="payment-desc">Direct Bank Transfer</div>
+                                        </div>
+                                        <div class="payment-radio">
+                                            <input type="radio" name="paymentMethod" value="bank">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Dynamic Payment Fields -->
+                                <div id="paymentFields" class="payment-fields">
+                                    <div class="form-group">
+                                        <label for="easypaisaNumber" class="required">EasyPaisa Number</label>
+                                        <input type="text" id="easypaisaNumber" class="form-control" placeholder="03XX XXXXXXX" required>
+                                        <span class="error-feedback" id="easypaisaError"></span>
+                                    </div>
+                                    <div class="payment-note">
+                                        <i class="fas fa-info-circle"></i>
+                                        You will receive a payment request on your EasyPaisa account
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Terms & Conditions -->
+                        <section class="form-section">
+                            <div class="form-check">
+                                <input type="checkbox" id="terms" class="form-check-input" required>
+                                <label for="terms" class="form-check-label">
+                                    I agree to the <a href="terms.html" target="_blank">Terms & Conditions</a> 
+                                    and <a href="privacy.html" target="_blank">Privacy Policy</a>
+                                </label>
+                                <span class="error-feedback" id="termsError"></span>
+                            </div>
+                            
+                            <div class="form-check">
+                                <input type="checkbox" id="newsletter" class="form-check-input">
+                                <label for="newsletter" class="form-check-label">
+                                    Send me updates about new courses, offers, and promotions
+                                </label>
+                            </div>
+                        </section>
+
+                        <!-- Form Actions -->
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+                                <i class="fas fa-lock"></i>
+                                Complete Enrollment & Pay Now
+                            </button>
+                            <a href="courses.html" class="btn btn-outline btn-lg">
+                                <i class="fas fa-arrow-left"></i>
+                                Back to Courses
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <img src="./assets/imgs/logo.png" alt="Logo" class="logo-img">
+            
+                    </a>
+                    <p class="footer-desc">
+                        Practical digital skills education for the modern creator, entrepreneur, and professional.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <a href="index.html" class="footer-link">Home</a>
+                    <a href="courses.html" class="footer-link">All Courses</a>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="testimonials.html" class="footer-link">Success Stories</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Support</h4>
+                    <a href="contact.html" class="footer-link">Contact Us</a>
+                    <a href="#" class="footer-link">FAQ</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p class="footer-text">
+                        Get weekly skill-building tips and course updates.
+                    </p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit" class="btn btn-sm btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2024 SkillHub. All rights reserved. Built with
+                    <i class="fas fa-heart"></i> for learners worldwide.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/enrollment.js"></script>
+</body>
+</html>
