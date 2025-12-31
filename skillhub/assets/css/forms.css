@@ -213,11 +213,11 @@ textarea.form-control {
 
 /* Error States */
 .form-group.has-error .form-control {
-    border-color: #ef4444;
+    border-color: #0b7581;
 }
 
 .form-group.has-error .form-control:focus {
-    border-color: #ef4444;
+    border-color: #076774;
     box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
 }
 
@@ -231,11 +231,11 @@ textarea.form-control {
 
 /* Success States */
 .form-group.has-success .form-control {
-    border-color: #10b981;
+    border-color: #05655d;
 }
 
 .form-group.has-success .form-control:focus {
-    border-color: #10b981;
+    border-color: #026c59;
     box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
 }
 
@@ -370,7 +370,7 @@ textarea.form-control {
 }
 
 .section-title i {
-    color: #3b82f6;
+    color: #04312d;
     font-size: 1.125rem;
 }
 
@@ -393,23 +393,23 @@ textarea.form-control {
 }
 
 .file-upload-area:hover {
-    border-color: #3b82f6;
+    border-color: #6ea5ad;
     background: #eff6ff;
     transform: translateY(-2px);
 }
 
 .dark-mode .file-upload-area:hover {
-    background: #1e3a8a;
-    border-color: #3b82f6;
+    background: #6ec1d6;
+    border-color: #031c1b;
 }
 
 .file-upload-area.dragover {
-    border-color: #3b82f6;
+    border-color: #041e25;
     background: #dbeafe;
 }
 
 .dark-mode .file-upload-area.dragover {
-    background: #1e3a8a;
+    background: #042627;
 }
 
 .file-upload-area input[type="file"] {
@@ -431,11 +431,11 @@ textarea.form-control {
 }
 
 .file-upload-area:hover .upload-icon {
-    color: #3b82f6;
+    color: #159494;
 }
 
 .file-upload-area p {
-    color: #6b7280;
+    color: #89dae7;
     margin-bottom: 0.5rem;
     font-size: 1rem;
 }
@@ -445,7 +445,7 @@ textarea.form-control {
 }
 
 .file-name {
-    color: #3b82f6;
+    color: #0b93ab;
     font-weight: 600;
     margin-top: 0.75rem;
     font-size: 0.95rem;
@@ -521,7 +521,7 @@ textarea.form-control {
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: #3b82f6;
+    background: #298896;
     cursor: pointer;
     border: 3px solid white;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
