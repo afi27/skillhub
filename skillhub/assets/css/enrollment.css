@@ -65,8 +65,8 @@
 }
 
 .step.active .step-icon {
-    background: #3b82f6;
-    border-color: #3b82f6;
+    background: #098374;
+    border-color: #043132;
     color: white;
     transform: scale(1.1);
     box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
@@ -96,31 +96,31 @@
 }
 
 .step.active .step-number {
-    background: #1d4ed8;
+    background: #043541;
     color: white;
 }
 
 .step.completed .step-number {
-    background: #059669;
+    background: #054b44;
     color: white;
 }
 
 .step-label {
     font-weight: 600;
-    color: #6b7280;
+    color: #085353;
     font-size: 0.95rem;
 }
 
 .dark-mode .step-label {
-    color: #d1d5db;
+    color: #074a49;
 }
 
 .step.active .step-label {
-    color: #3b82f6;
+    color: #044b65;
 }
 
 .step.completed .step-label {
-    color: #10b981;
+    color: #065753;
 }
 
 /* Enrollment Grid */
@@ -166,7 +166,7 @@
     position: absolute; /* CHANGE TO ABSOLUTE */
     top: 0;
     right: 0;
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    background: linear-gradient(135deg, #f0f1f3, #45c5ce);
     color: white;
     padding: 6px 12px;
     border-radius: 20px;
@@ -195,7 +195,7 @@
 
 /* Price Box - Move it if overlapping */
 .course-price-box {
-    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    background: linear-gradient(135deg, hsl(210, 25%, 98%) 0%, #76dfd5 100%);
     color: white;
     padding: 20px;
     border-radius: 15px;
@@ -278,17 +278,17 @@
 }
 
 .dark-mode .detail-item:hover {
-    background: #1e3a8a;
+    background: #033035;
 }
 
 .detail-item i {
-    color: #3b82f6;
+    color: #076672;
     font-size: 1rem;
     width: 20px;
 }
 
 .detail-item span {
-    color: #4b5563;
+    color: #0b5570;
     font-size: 0.95rem;
     font-weight: 500;
 }
@@ -299,7 +299,7 @@
 
 /* Price Box */
 .course-price-box {
-    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    background: linear-gradient(135deg, hsl(220, 100%, 99%) 0%, #36656c 100%);
     color: white;
     padding: 25px;
     border-radius: 15px;
@@ -373,7 +373,7 @@
 }
 
 .features-list li i {
-    color: #10b981;
+    color: #087375;
     font-size: 0.875rem;
 }
 
@@ -423,29 +423,29 @@
 }
 
 .payment-option:hover {
-    border-color: #3b82f6;
+    border-color: #3a9faa;
     background: #eff6ff;
     transform: translateY(-2px);
 }
 
 .dark-mode .payment-option:hover {
-    background: #1e3a8a;
+    background: #1a6877;
 }
 
 .payment-option.active {
-    border-color: #3b82f6;
+    border-color: #2b6b7e;
     background: #eff6ff;
     box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
 }
 
 .dark-mode .payment-option.active {
-    background: #1e3a8a;
+    background: #26a5aa;
 }
 
 .payment-icon {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    background: linear-gradient(135deg, hsl(180, 9%, 96%), #20c9d5);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -482,7 +482,7 @@
     width: 20px;
     height: 20px;
     cursor: pointer;
-    accent-color: #3b82f6;
+    accent-color: #40b0a8;
 }
 
 /* Payment Fields */
@@ -501,11 +501,11 @@
 
 .payment-note {
     background: #e0f2fe;
-    border-left: 4px solid #3b82f6;
+    border-left: 4px solid #1c9e97;
     padding: 15px;
     border-radius: 8px;
     margin-top: 20px;
-    color: #1e40af;
+    color: #0e688c;
     font-size: 0.9rem;
     display: flex;
     align-items: center;
@@ -513,9 +513,9 @@
 }
 
 .dark-mode .payment-note {
-    background: #1e3a8a;
-    color: #93c5fd;
-    border-color: #3b82f6;
+    background: #011c1f;
+    color: #aedeec;
+    border-color: #57bdc7;
 }
 
 .payment-note i {
