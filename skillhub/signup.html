@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign Up - SkillHub</title>
+    <title>Login - SkillHub</title>
     <link rel="stylesheet" href="./assets/css/layout.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/about.css" />
@@ -16,6 +17,7 @@
     />
   </head>
   <body>
+    <!-- Theme Toggle -->
     <button class="theme-toggle" id="themeToggle">
       <i class="fas fa-moon"></i>
     </button>
@@ -24,47 +26,53 @@
     <nav class="navbar">
       <div class="container nav-container">
         <a href="index.html" class="logo">
-         <img src="./assets/imgs/logo.png" alt="Logo" class="logo">  
-          <span>SkillHub</span>
+          <span><img src="./assets/imgs/logo.png" alt=" SkillHub" class="logo">SkillHub</span>
         </a>
 
         <div class="nav-menu" id="navMenu">
-          <a href="index.html" class="nav-link active">Home</a>
+          <a href="index.html" class="nav-link ">Home</a>
           <a href="courses.html" class="nav-link">Courses</a>
           <a href="about.html" class="nav-link">About</a>
           <a href="testimonials.html" class="nav-link">Success Stories</a>
           <a href="contact.html" class="nav-link">Contact</a>
-          <a href="login.html" class="btn btn-outline">Sign In</a>
-        </div>
-
+          <div style="display: flex; gap: 10px;">
+  <a href="login.html" class="btn btn-outline">
+    <i class="fas fa-user"></i> Sign In
+  </a>
+  <a href="user-profile.html" class="btn btn-outline" style="background: #4CAF50; color: white; border: none;">
+    <i class="fas fa-user-circle"></i> My Profile
+  </a>
+</div>
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
           <i class="fas fa-bars"></i>
         </button>
       </div>
     </nav>
 
-    <section class="auth-section">
+    <!-- Login Section -->
+    <section class="auth-section" style="width: 100%;">
       <div class="container">
         <div class="auth-container">
           <div class="auth-header">
             <h1>Create Account</h1>
-            <p>Start your learning journey today</p>
+            <p>
+Start your learning journey today
+            </p>
           </div>
 
-          <form class="auth-form" id="signupForm">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input type="text" id="firstName" placeholder="John" required />
-                <div class="error-message" id="firstNameError"></div>
+          <form class="auth-form" id="loginForm">
+            <div class="form-group">
+              <label for="email">Full Name</label>
+              <div class="input-with-icon">
+                <i class="fas fa-envelope"></i>
+                <input
+                  type="text"
+                  placeholder="Enter Your Name"
+                  required
+                />
               </div>
-              <div class="form-group">
-                <label for="lastName">Last Name</label>
-                <input type="text" id="lastName" placeholder="Doe" required />
-                <div class="error-message" id="lastNameError"></div>
-              </div>
+              <div class="error-message" id="emailError"></div>
             </div>
-
             <div class="form-group">
               <label for="email">Email Address</label>
               <div class="input-with-icon">
@@ -89,62 +97,33 @@
                   placeholder="••••••••"
                   required
                 />
-                <button type="button" class="show-password">
+                <button type="button" class="show-password" id="showPassword">
                   <i class="fas fa-eye"></i>
                 </button>
               </div>
-              <div class="password-strength">
-                <div class="strength-bar">
-                  <span class="strength-level" id="strengthLevel"></span>
-                </div>
-                <span class="strength-text" id="strengthText">Weak</span>
-              </div>
-              <div class="password-rules">
-                <p><i class="fas fa-check"></i> Minimum 8 characters</p>
-                <p><i class="fas fa-check"></i> Include uppercase letter</p>
-                <p><i class="fas fa-check"></i> Include number</p>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="confirmPassword">Confirm Password</label>
-              <div class="input-with-icon">
-                <i class="fas fa-lock"></i>
-                <input
-                  type="password"
-                  id="confirmPassword"
-                  placeholder="••••••••"
-                  required
-                />
-              </div>
-              <div class="error-message" id="confirmError"></div>
-            </div>
-
-            <div class="form-group">
-              <label class="checkbox">
-                <input type="checkbox" id="terms" required />
-                <span
-                  >I agree to the <a href="#">Terms of Service</a> and
-                  <a href="#">Privacy Policy</a></span
-                >
-              </label>
-              <div class="error-message" id="termsError"></div>
-            </div>
-
-            <div class="form-group">
-              <label class="checkbox">
-                <input type="checkbox" id="newsletter" />
-                <span>Send me course updates and learning tips</span>
-              </label>
+              <div class="error-message" id="passwordError"></div>
             </div>
 
             <button type="submit" class="btn btn-primary btn-block">
-              <i class="fas fa-user-plus"></i> Create Account
+              <i class="fas fa-sign-in-alt"></i> Sign Up
             </button>
+
+            <div class="auth-divider">
+              <span>or continue with</span>
+            </div>
+
+            <div class="social-login">
+              <button type="button" class="btn-social google">
+                <i class="fab fa-google"></i> Google
+              </button>
+              <button type="button" class="btn-social github">
+                <i class="fab fa-github"></i> GitHub
+              </button>
+            </div>
 
             <div class="auth-footer">
               <p>
-                Already have an account? <a href="login.html">Sign in here</a>
+                Already have an Account? <a href="login.html">Sign in here</a>
               </p>
             </div>
           </form>
@@ -152,12 +131,13 @@
       </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
       <div class="container">
         <div class="footer-grid">
           <div class="footer-col">
             <a href="index.html" class="footer-logo">
-              <img src="./assets/imgs/logo.png" alt="Logo" class="logo">  
+              <img src="./assets/imgs/logo.png" alt="Logo" class="logo">
               <span>SkillHub</span>
             </a>
             <p class="footer-desc">
@@ -224,5 +204,25 @@
     <script src="./assets/js/courses.js"></script>
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/user-dashboard.js"></script>
+
+    <script>
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  // Set user as logged in
+  localStorage.setItem('skillhub_loggedIn', 'true');
+
+  // Save user data
+  const userData = {
+    name: "Afia Abbas",
+    email: document.getElementById('email').value || "user@example.com"
+  };
+  localStorage.setItem('skillhub_user', JSON.stringify(userData));
+
+  // Redirect to profile
+  window.location.href = 'user-profile.html';
+});
+</script>
   </body>
 </html>
+
