@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile - SkillHub</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
         /* Profile Specific Styles */
         .user-profile {
@@ -304,20 +317,20 @@
                 text-align: center;
                 gap: 20px;
             }
-            
+
             .profile-stats {
                 justify-content: center;
             }
-            
+
             .profile-tabs {
                 flex-wrap: wrap;
             }
-            
+
             .tab {
                 flex: none;
                 min-width: 120px;
             }
-            
+
             .courses-grid {
                 grid-template-columns: 1fr;
             }
@@ -325,30 +338,32 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-      <div class="container nav-container">
-        <a href="index.html" class="logo">
-          <span><img src="./assets/imgs/logo.png" alt=" SkillHub" class="logo">SkillHub</span>
-        </a>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <span><img src="./assets/imgs/logo.png" alt=" SkillHub" class="logo">SkillHub</span>
+      </a>
 
-        <div class="nav-menu" id="navMenu">
-          <a href="index.html" class="nav-link active">Home</a>
-          <a href="courses.html" class="nav-link">Courses</a>
-          <a href="about.html" class="nav-link">About</a>
-          <a href="testimonials.html" class="nav-link">Success Stories</a>
-          <a href="contact.html" class="nav-link">Contact</a>
-           <a href="user-profile.html" class="nav-link active">My Profile</a>
-    
-<a href="index.html" class="btn btn-outline" onclick="logoutUser()">Sign Out</a>
-         
-        </div>
-
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
-    </nav>
+      <div class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link ">Home</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="testimonials.html" class="nav-link">Success Stories</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <div style="display: flex; gap: 10px;">
+<a href="login.html" class="btn btn-outline">
+  <i class="fas fa-user"></i> Sign In
+</a>
+<a href="user-profile.html" class="btn btn-outline" style="background: #4CAF50; color: white; border: none;">
+  <i class="fas fa-user-circle"></i> My Profile
+</a>
+</div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
     <!-- User Profile Section -->
     <div class="user-profile">
         <!-- Profile Header -->
@@ -357,12 +372,12 @@
                 <img src="https://via.placeholder.com/120/667eea/ffffff?text=JD" alt="Afia" id="user-avatar">
                 <button class="edit-avatar" onclick="changeAvatar()">✎</button>
             </div>
-            
+
             <div class="profile-info">
                 <h1 id="user-name">Afia Abbas</h1>
                 <span class="user-title">Premium Member</span>
                 <p class="join-date">Member since: January 15, 2024</p>
-                
+
                 <div class="profile-stats">
                     <div class="stat-item">
                         <span class="stat-number">8</span>
@@ -382,7 +397,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="profile-actions">
                 <button class="btn-edit" onclick="editProfile()">✎ Edit Profile</button>
                 <button class="btn-settings" onclick="openSettings()">⚙ Settings</button>
@@ -416,7 +431,7 @@
                     <h2>Welcome back, Afia! 👋</h2>
                     <p>Continue your learning journey. You have 2 courses in progress.</p>
                 </div>
-                
+
                 <div class="stats-grid">
                     <div class="stat-card">
                         <h3>Learning Streak</h3>
@@ -434,7 +449,7 @@
                         <p>Digital Marketing Final</p>
                     </div>
                 </div>
-                
+
                 <h3>Recent Activity</h3>
                 <div class="activity-feed">
                     <div class="activity-item">
@@ -470,7 +485,7 @@
                             <button class="btn-continue">Continue Learning →</button>
                         </div>
                     </div>
-                    
+
                     <!-- Course 2 -->
                     <div class="profile-course-card">
                         <img src="https://via.placeholder.com/300x160/4CAF50/ffffff?text=Digital+Art" alt="Digital Art" class="course-thumb">
@@ -489,7 +504,7 @@
                             <button class="btn-continue">Continue Learning →</button>
                         </div>
                     </div>
-                    
+
                     <!-- Add more courses similarly -->
                 </div>
             </div>
@@ -505,7 +520,7 @@
                         <button class="btn-continue">Download PDF</button>
                         <button class="btn-settings" style="margin-top: 10px;">Share to LinkedIn</button>
                     </div>
-                    
+
                     <div class="certificate-card">
                         <div class="certificate-icon">📜</div>
                         <h3>Podcost in a Week</h3>
@@ -517,34 +532,55 @@
             </div>
 
             <!-- Account Tab -->
-            <div id="account" class="tab-pane">
-                <h2>Account Settings</h2>
-                <div class="settings-form">
-                    <div class="form-group">
-                        <label>Full Name</label>
-                        <input type="text" value="Afia" class="form-input">
-                    </div>
-                    <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" value="abc@example.com" class="form-input">
-                    </div>
-                    <div class="form-group">
-                        <label>Phone Number</label>
-                        <input type="tel" value="+1234567890" class="form-input">
-                    </div>
-                    <button class="btn-edit" style="margin-top: 20px;">Save Changes</button>
-                </div>
-            </div>
+            <div id="account" class="tab-pane" style="max-width: 500px; background: #ffffff; padding: 25px; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); font-family: Arial, sans-serif;">
+
+              <h2 style="margin-bottom: 20px; color: #333; font-size: 22px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+                  Account Settings
+              </h2>
+
+              <div class="settings-form">
+
+                  <div class="form-group" style="margin-bottom: 15px;">
+                      <label style="display: block; font-size: 14px; color: #555; margin-bottom: 6px;">
+                          Full Name
+                      </label>
+                      <input type="text" value="Afia"
+                          style="width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; outline: none;">
+                  </div>
+
+                  <div class="form-group" style="margin-bottom: 15px;">
+                      <label style="display: block; font-size: 14px; color: #555; margin-bottom: 6px;">
+                          Email Address
+                      </label>
+                      <input type="email" value="abc@example.com"
+                          style="width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; outline: none;">
+                  </div>
+
+                  <div class="form-group" style="margin-bottom: 20px;">
+                      <label style="display: block; font-size: 14px; color: #555; margin-bottom: 6px;">
+                          Phone Number
+                      </label>
+                      <input type="tel" value="+1234567890"
+                          style="width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; outline: none;">
+                  </div>
+
+                  <button
+                      style="width: 100%; padding: 12px; background: #4f46e5; color: #ffffff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer;">
+                      Save Changes
+                  </button>
+
+              </div>
+          </div>
+
         </div>
     </div>
-
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
         <div class="footer-grid">
           <div class="footer-col">
             <a href="index.html" class="footer-logo">
-              <i class="fas fa-brain"></i>
+             <img src="./assets/imgs/logo.png" alt="Logo" class="logo">
               <span>SkillHub</span>
             </a>
             <p class="footer-desc">
@@ -614,7 +650,7 @@
                 // Remove active from all
                 document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
                 document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-                
+
                 // Add active to clicked
                 tab.classList.add('active');
                 const tabId = tab.getAttribute('data-tab');
@@ -649,35 +685,6 @@
             });
         });
     </script>
-
-    <script>
-// Logout function
-function logoutUser() {
-  // Clear login data
-  localStorage.removeItem('skillhub_loggedIn');
-  localStorage.removeItem('skillhub_user');
-  
-  // Optional: Show message
-  alert('You have been logged out successfully!');
-  
-  // Redirect will happen via href="index.html"
-}
-
-// Check if user is logged in (page protection)
-window.onload = function() {
-  const isLoggedIn = localStorage.getItem('skillhub_loggedIn') === 'true';
-  
-  if (!isLoggedIn) {
-    alert('Please login first to access your profile!');
-    window.location.href = 'index.html';
-  }
-  
-  // Load user data
-  const userData = JSON.parse(localStorage.getItem('skillhub_user')) || {};
-  if (userData.name) {
-    document.getElementById('user-name').textContent = userData.name;
-  }
-};
 </script>
 </body>
 </html>
