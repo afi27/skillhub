@@ -11,26 +11,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
     /* ===== PERFECT LOGO SIZE FOR ENROLLMENT PAGE ===== */
-    
+
     /* Header Logo - Perfect Size */
     .navbar .logo {
         display: flex !important;
         align-items: center !important;
         gap: 12px !important;
     }
-    
+
     .navbar .logo-img {
         height: 85px !important;
         width: auto !important;
         object-fit: contain !important;
     }
-    
+
     .navbar .logo span {
         font-size: 1.9rem !important;
         font-weight: 800 !important;
         color: #1f2937 !important;
     }
-    
+
     /* Footer Logo - Slightly Larger */
     .footer-logo {
         display: flex !important;
@@ -38,19 +38,19 @@
         gap: 15px !important;
         margin-bottom: 25px !important;
     }
-    
+
     .footer-logo .logo-img {
         height: 85px !important;
         width: auto !important;
         object-fit: contain !important;
     }
-    
+
     .footer-logo span {
         font-size: 2.1rem !important;
         font-weight: 800 !important;
         color: white !important;
     }
-    
+
     /* For dark mode */
     .dark-mode .navbar .logo span {
         color: #f9fafb !important;
@@ -58,34 +58,32 @@
 </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <img src="./assets/imgs/logo.png" alt="SkillHub" class="logo-img">
-                
-            </a>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <span><img src="./assets/imgs/logo.png" alt=" SkillHub" class="logo">SkillHub</span>
+      </a>
 
-            <div class="nav-menu" id="navMenu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="courses.html" class="nav-link">Courses</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="testimonials.html" class="nav-link">Success Stories</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-                <div class="nav-buttons">
-                    <a href="login.html" class="btn btn-outline">
-                        <i class="fas fa-user"></i> Sign In
-                    </a>
-                    <a href="user-profile.html" class="btn btn-primary">
-                        <i class="fas fa-user-circle"></i> My Profile
-                    </a>
-                </div>
-            </div>
-            <button class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </nav>
+      <div class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="testimonials.html" class="nav-link">Success Stories</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <div style="display: flex; gap: 10px;">
+<a href="login.html" class="btn btn-outline">
+  <i class="fas fa-user"></i> Sign In
+</a>
+<a href="user-profile.html" class="btn btn-outline" style="background: #4CAF50; color: white; border: none;">
+  <i class="fas fa-user-circle"></i> My Profile
+</a>
+</div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
 
     <!-- Enrollment Page -->
     <main class="enrollment-page">
@@ -137,11 +135,11 @@
                         <h3 id="courseTitle">Course Title</h3>
                         <div class="course-badge" id="courseBadge">Most Popular</div>
                     </div>
-                    
+
                     <div class="course-thumbnail">
                         <img id="courseThumbnail" src="./assets/imgs/thumnail1.png" alt="Course Thumbnail">
                     </div>
-                    
+
                     <div class="course-details">
                         <div class="detail-item">
                             <i class="fas fa-clock"></i>
@@ -160,7 +158,7 @@
                             <span>Certificate Included</span>
                         </div>
                     </div>
-                    
+
                     <div class="course-price-box">
                         <div class="price-header">
                             <span class="price-label">Total Amount</span>
@@ -169,7 +167,7 @@
                         <div class="current-price" id="coursePrice">PKR 30,000</div>
                         <div class="discount-badge" id="discountBadge">Save PKR 5,000</div>
                     </div>
-                    
+
                     <div class="features-list">
                         <h4>What's Included:</h4>
                         <ul>
@@ -196,54 +194,54 @@
                                 <i class="fas fa-user-circle"></i>
                                 Personal Information
                             </h3>
-                            
+
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="firstName" class="required">First Name</label>
                                     <input type="text" id="firstName" class="form-control" placeholder="Enter your first name" required>
                                     <span class="error-feedback" id="firstNameError"></span>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label for="lastName" class="required">Last Name</label>
                                     <input type="text" id="lastName" class="form-control" placeholder="Enter your last name" required>
                                     <span class="error-feedback" id="lastNameError"></span>
                                 </div>
                             </div>
-                            
+
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="email" class="required">Email Address</label>
                                     <input type="email" id="email" class="form-control" placeholder="your.email@example.com" required>
                                     <span class="error-feedback" id="emailError"></span>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label for="phone" class="required">Phone Number</label>
                                     <input type="tel" id="phone" class="form-control" placeholder="+92 300 1234567" required>
                                     <span class="error-feedback" id="phoneError"></span>
                                 </div>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="cnic" class="required">CNIC/NICOP Number</label>
                                 <input type="text" id="cnic" class="form-control" placeholder="XXXXX-XXXXXXX-X" required>
                                 <span class="error-feedback" id="cnicError"></span>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="address" class="required">Address</label>
                                 <textarea id="address" class="form-control" rows="3" placeholder="Enter your complete address" required></textarea>
                                 <span class="error-feedback" id="addressError"></span>
                             </div>
-                            
+
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="city" class="required">City</label>
                                     <input type="text" id="city" class="form-control" placeholder="e.g., Karachi, Lahore" required>
                                     <span class="error-feedback" id="cityError"></span>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label for="country" class="required">Country</label>
                                     <select id="country" class="form-control form-control-select" required>
@@ -267,7 +265,7 @@
                                 <i class="fas fa-graduation-cap"></i>
                                 Education & Background
                             </h3>
-                            
+
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="education">Highest Education</label>
@@ -281,7 +279,7 @@
                                         <option value="other">Other</option>
                                     </select>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label for="occupation">Current Occupation</label>
                                     <select id="occupation" class="form-control form-control-select">
@@ -294,7 +292,7 @@
                                     </select>
                                 </div>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="experience">Previous Experience (if any)</label>
                                 <textarea id="experience" class="form-control" rows="3" placeholder="Briefly describe any relevant experience"></textarea>
@@ -307,7 +305,7 @@
                                 <i class="fas fa-credit-card"></i>
                                 Payment Information
                             </h3>
-                            
+
                             <div class="payment-methods">
                                 <div class="payment-options-grid">
                                     <div class="payment-option active" data-method="easypaisa">
@@ -322,7 +320,7 @@
                                             <input type="radio" name="paymentMethod" value="easypaisa" checked>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="payment-option" data-method="jazzcash">
                                         <div class="payment-icon">
                                             <i class="fas fa-wallet"></i>
@@ -335,7 +333,7 @@
                                             <input type="radio" name="paymentMethod" value="jazzcash">
                                         </div>
                                     </div>
-                                    
+
                                     <div class="payment-option" data-method="card">
                                         <div class="payment-icon">
                                             <i class="fas fa-credit-card"></i>
@@ -348,7 +346,7 @@
                                             <input type="radio" name="paymentMethod" value="card">
                                         </div>
                                     </div>
-                                    
+
                                     <div class="payment-option" data-method="bank">
                                         <div class="payment-icon">
                                             <i class="fas fa-university"></i>
@@ -362,7 +360,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Dynamic Payment Fields -->
                                 <div id="paymentFields" class="payment-fields">
                                     <div class="form-group">
@@ -383,12 +381,12 @@
                             <div class="form-check">
                                 <input type="checkbox" id="terms" class="form-check-input" required>
                                 <label for="terms" class="form-check-label">
-                                    I agree to the <a href="terms.html" target="_blank">Terms & Conditions</a> 
+                                    I agree to the <a href="terms.html" target="_blank">Terms & Conditions</a>
                                     and <a href="privacy.html" target="_blank">Privacy Policy</a>
                                 </label>
                                 <span class="error-feedback" id="termsError"></span>
                             </div>
-                            
+
                             <div class="form-check">
                                 <input type="checkbox" id="newsletter" class="form-check-input">
                                 <label for="newsletter" class="form-check-label">
@@ -421,7 +419,7 @@
                 <div class="footer-col">
                     <a href="index.html" class="footer-logo">
                         <img src="./assets/imgs/logo.png" alt="Logo" class="logo-img">
-            
+
                     </a>
                     <p class="footer-desc">
                         Practical digital skills education for the modern creator, entrepreneur, and professional.
