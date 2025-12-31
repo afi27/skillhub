@@ -23,19 +23,23 @@
     <nav class="navbar">
       <div class="container nav-container">
         <a href="index.html" class="logo">
-          <i class="fas fa-brain"></i>
-          <span>SkillHub</span>
+          <span><img src="./assets/imgs/logo.png" alt=" SkillHub" class="logo">SkillHub</span>
         </a>
 
         <div class="nav-menu" id="navMenu">
-          <a href="index.html" class="nav-link active">Home</a>
+          <a href="index.html" class="nav-link ">Home</a>
           <a href="courses.html" class="nav-link">Courses</a>
           <a href="about.html" class="nav-link">About</a>
           <a href="testimonials.html" class="nav-link">Success Stories</a>
           <a href="contact.html" class="nav-link">Contact</a>
-          <a href="login.html" class="btn btn-outline">Sign In</a>
-        </div>
-
+          <div style="display: flex; gap: 10px;">
+  <a href="login.html" class="btn btn-outline">
+    <i class="fas fa-user"></i> Sign In
+  </a>
+  <a href="user-profile.html" class="btn btn-outline" style="background: #4CAF50; color: white; border: none;">
+    <i class="fas fa-user-circle"></i> My Profile
+  </a>
+</div>
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
           <i class="fas fa-bars"></i>
         </button>
