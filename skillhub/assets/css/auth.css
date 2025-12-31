@@ -1,389 +1,175 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile - SkillHub</title>
-    <link rel="stylesheet" href="core.css">/* auth.css - Authentication Pages Styles */
+/* auth.css - Authentication Pages Styles */
 
 /* Auth Section Styling */
 .auth-section {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 1rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  position: relative;
 }
 
 .auth-container {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    padding: 3rem;
-    width: 100%;
-    max-width: 450px;
-    position: relative;
-    z-index: 1;
+  background: white;
+  border-radius: 15px;
+  padding: 3rem;
+  width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .auth-header {
-    text-align: center;
-    margin-bottom: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .auth-header h1 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
 }
 
 .auth-header p {
-    color: #666;
-    font-size: 1.1rem;
+  color: #666;
+  font-size: 1.1rem;
 }
 
 /* Form Styling */
 .auth-form .form-group {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .auth-form label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #333;
-    font-weight: 500;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
 }
 
 .input-with-icon {
-    position: relative;
+  position: relative;
 }
 
 .input-with-icon i {
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #666;
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
 }
 
 .input-with-icon input {
-    width: 100%;
-    padding: 0.9rem 1rem 0.9rem 3rem;
-    border: 2px solid #e1e1e1;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
+  width: 100%;
+  padding: 0.9rem 1rem 0.9rem 3rem;
+  border: 2px solid #e1e1e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
 }
 
 .input-with-icon input:focus {
-    outline: none;
-    border-color: #764ba2;
+  outline: none;
+  border-color: #764ba2;
 }
 
 /* Show Password Button */
 .show-password {
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: #666;
-    cursor: pointer;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
 }
 
 /* Form Options */
 .form-options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
 }
 
 .checkbox {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .forgot-link {
-    color: #764ba2;
-    text-decoration: none;
-    font-weight: 500;
+  color: #764ba2;
+  text-decoration: none;
+  font-weight: 500;
 }
 
 /* Social Login */
 .auth-divider {
-    text-align: center;
-    margin: 2rem 0;
-    position: relative;
+  text-align: center;
+  margin: 2rem 0;
+  position: relative;
 }
 
 .auth-divider::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 100%;
-    height: 1px;
-    background: #e1e1e1;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background: #e1e1e1;
 }
 
 .auth-divider span {
-    background: white;
-    padding: 0 1rem;
-    color: #666;
-    position: relative;
+  background: white;
+  padding: 0 1rem;
+  color: #666;
+  position: relative;
 }
 
 .social-login {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .btn-social {
-    flex: 1;
-    padding: 0.9rem;
-    border: 2px solid #e1e1e1;
-    border-radius: 8px;
-    background: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    transition: all 0.3s;
+  flex: 1;
+  padding: 0.9rem;
+  border: 2px solid #e1e1e1;
+  border-radius: 8px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .btn-social.google:hover {
-    background: #4285f4;
-    color: white;
-    border-color: #4285f4;
+  background: #4285f4;
+  color: white;
+  border-color: #4285f4;
 }
 
 .btn-social.github:hover {
-    background: #333;
-    color: white;
-    border-color: #333;
+  background: #333;
+  color: white;
+  border-color: #333;
 }
 
 /* Auth Footer */
 .auth-footer {
-    text-align: center;
-    padding-top: 1.5rem;
-    border-top: 1px solid #e1e1e1;
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e1e1e1;
 }
 
 .auth-footer a {
-    color: #764ba2;
-    text-decoration: none;
-    font-weight: 600;
+  color: #764ba2;
+  text-decoration: none;
+  font-weight: 600;
 }
-    <link rel="stylesheet" href="auth.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <button class="theme-toggle" id="themeToggle">
-        <i class="fas fa-moon"></i>
-    </button>
-
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <i class="fas fa-brain"></i>
-                <span>SkillHub</span>
-            </a>
-            <div class="nav-menu" id="navMenu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="course-pages/courses.html" class="nav-link">Courses</a>
-                <a href="dashboard.html" class="nav-link">Dashboard</a>
-                <a href="profile.html" class="nav-link active">Profile</a>
-                <button class="btn btn-outline" id="logoutBtn">Logout</button>
-            </div>
-            <button class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </nav>
-
-    <div class="profile-container">
-        <div class="container">
-            <!-- Profile Header -->
-            <div class="profile-header">
-                <div class="avatar-upload">
-                    <div class="avatar-large">
-                        <i class="fas fa-user"></i>
-                        <button class="avatar-change" id="changeAvatar">
-                            <i class="fas fa-camera"></i>
-                        </button>
-                    </div>
-                    <input type="file" id="avatarInput" accept="image/*" hidden>
-                </div>
-                <div class="profile-info">
-                    <h1 id="profileName">John Doe</h1>
-                    <p id="profileEmail">john@example.com</p>
-                    <p class="member-since">Member since: January 2024</p>
-                </div>
-            </div>
-
-            <!-- Profile Tabs -->
-            <div class="profile-tabs">
-                <button class="tab-btn active" data-tab="edit">Edit Profile</button>
-                <button class="tab-btn" data-tab="security">Security</button>
-                <button class="tab-btn" data-tab="notifications">Notifications</button>
-                <button class="tab-btn" data-tab="billing">Billing</button>
-            </div>
-
-            <!-- Edit Profile Tab -->
-            <div class="tab-content active" id="editTab">
-                <form class="profile-form" id="profileForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName">First Name</label>
-                            <input type="text" id="firstName" value="John" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name</label>
-                            <input type="text" id="lastName" value="Doe" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" value="john@example.com" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" placeholder="+1 (555) 123-4567">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="bio">Bio</label>
-                        <textarea id="bio" rows="4" placeholder="Tell us about yourself...">Digital marketing specialist learning AI tools</textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="skills">Skills</label>
-                        <div class="skills-input">
-                            <input type="text" id="skillInput" placeholder="Add a skill">
-                            <button type="button" class="btn btn-sm" id="addSkill">Add</button>
-                        </div>
-                        <div class="skills-tags" id="skillsContainer">
-                            <span class="skill-tag">Digital Marketing<i class="fas fa-times"></i></span>
-                            <span class="skill-tag">Content Writing<i class="fas fa-times"></i></span>
-                            <span class="skill-tag">Social Media<i class="fas fa-times"></i></span>
-                        </div>
-                    </div>
-
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">Save Changes</button>
-                        <button type="button" class="btn btn-outline" id="cancelBtn">Cancel</button>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Security Tab -->
-            <div class="tab-content" id="securityTab">
-                <div class="security-section">
-                    <h3>Change Password</h3>
-                    <form class="security-form" id="passwordForm">
-                        <div class="form-group">
-                            <label for="currentPassword">Current Password</label>
-                            <input type="password" id="currentPassword" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="newPassword">New Password</label>
-                            <input type="password" id="newPassword" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="confirmNewPassword">Confirm New Password</label>
-                            <input type="password" id="confirmNewPassword" required>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary">Update Password</button>
-                    </form>
-                </div>
-
-                <div class="security-section">
-                    <h3>Two-Factor Authentication</h3>
-                    <div class="toggle-setting">
-                        <span>Enable 2FA</span>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="twoFactorToggle">
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                    <p class="setting-description">Add an extra layer of security to your account</p>
-                </div>
-            </div>
-
-            <!-- Notifications Tab -->
-            <div class="tab-content" id="notificationsTab">
-                <div class="notification-section">
-                    <h3>Email Notifications</h3>
-                    <div class="toggle-setting">
-                        <span>Course updates</span>
-                        <label class="toggle-switch">
-                            <input type="checkbox" checked>
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                    <div class="toggle-setting">
-                        <span>Weekly learning tips</span>
-                        <label class="toggle-switch">
-                            <input type="checkbox" checked>
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                    <div class="toggle-setting">
-                        <span>Marketing emails</span>
-                        <label class="toggle-switch">
-                            <input type="checkbox">
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Billing Tab -->
-            <div class="tab-content" id="billingTab">
-                <div class="billing-section">
-                    <h3>Subscription</h3>
-                    <div class="plan-card">
-                        <div class="plan-header">
-                            <h4>Pro Learner</h4>
-                            <span class="plan-price">$19.99<span>/month</span></span>
-                        </div>
-                        <p>Access to all courses + certificates</p>
-                        <button class="btn btn-outline">Manage Subscription</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <a href="../index.html" class="footer-logo">
-                        <i class="fas fa-brain"></i>
-                        <span>SkillHub</span>
-                    </a>
-                    <p class="footer-desc">Practical digital skills education</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="../js/core.js"></script>
-    <script src="../js/user-dashboard.js"></script>
-</body>
-
-</html>
