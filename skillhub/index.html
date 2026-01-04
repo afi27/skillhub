@@ -23,6 +23,8 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    
+
   </head>
   <body>
     
@@ -32,6 +34,7 @@
         <a href="index.html" class="logo">
           <span><img src="./assets/imgs/logo.png" alt=" SkillHub" class="logo">SkillHub</span>
         </a>
+        
 
         <div class="nav-menu" id="navMenu">
           <a href="index.html" class="nav-link active">Home</a>
@@ -41,9 +44,25 @@
           <a href="contact.html" class="nav-link">Contact</a>
           <div style="display: flex; gap: 10px;">
   
+           <a href="./admin-panel/login.html"  style="
+      background: #0d9488;
+      color: #fff;
+      border-radius: 6px;
+      padding: 0.4rem 0.8rem;
+      font-weight: 600;
+      margin-left: 10px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.3s ease;
+  " onmouseover="this.style.background='#0f766e';" onmouseout="this.style.background='#0d9488';">
+    <i class="fas fa-user-shield"></i> Admin
+  </a>
+ 
   <a href="user-profile.html" class="btn btn-outline" style="background: #033126; color: white; border: none;">
     <i class="fas fa-user-circle"></i> My Profile
   </a>
+</button>
 </div>
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
           <i class="fas fa-bars"></i>
@@ -119,8 +138,9 @@
 
             <div class="course-badge">Most Popular</div>
             <div class="course-icon">
-              <i class="fas fa-shipping-fast"></i>
+              
             </div>
+           
             <h3 class="course-title">Start Dropshipping</h3>
             <p class="course-desc">
               Build a profitable online store without inventory. Learn sourcing,
@@ -147,8 +167,9 @@
              <img src="./assets/imgs/thumnail2.png" alt="Digital Art" class="course-thumbnail">
             <div class="course-badge">Creative</div>
             <div class="course-icon">
-              <i class="fas fa-palette"></i>
+              
             </div>
+           
             <h3 class="course-title">Digital Art Pro</h3>
             <p class="course-desc">
               Master Procreate and digital illustration. From basics to
@@ -175,7 +196,7 @@
             <img src="./assets/imgs/thumnail3.png" alt="Podcast in a Week" class="course-thumbnail">
             <div class="course-badge">Fast Track</div>
             <div class="course-icon">
-              <i class="fas fa-podcast"></i>
+              
             </div>
             <h3 class="course-title">Podcast in a Week</h3>
             <p class="course-desc">
@@ -203,7 +224,7 @@
             <img src="./assets/imgs/thumnail4.png" alt="AI Power-Up" class="course-thumbnail">
             <div class="course-badge">Trending</div>
             <div class="course-icon">
-              <i class="fas fa-robot"></i>
+              
             </div>
             <h3 class="course-title">AI Power-Up</h3>
             <p class="course-desc">
@@ -231,7 +252,7 @@
             <img src="./assets/imgs/thumnail5.png" alt="Phone to Film" class="course-thumbnail">
             <div class="course-badge">New</div>
             <div class="course-icon">
-              <i class="fas fa-video"></i>
+              
             </div>
             <h3 class="course-title">Phone to Film</h3>
             <p class="course-desc">
@@ -319,9 +340,9 @@
             Join thousands who've turned learning into earning
           </p>
           <div class="cta-buttons">
-            <a href="signup.html" class="btn btn-primary btn-lg"
-              >Start Free Trial</a
-            >
+            <a href="signup.html" class="btn btn-primary btn-lg" id="freeTrialBtn">Start Free Trial</a>
+
+            
             <a href="courses.html" class="btn btn-outline btn-lg"
               >Browse Courses</a
             >
@@ -414,3 +435,4 @@
     <script src="./assets/js/user-dashboard.js"></script>
   </body>
 </html>
+
