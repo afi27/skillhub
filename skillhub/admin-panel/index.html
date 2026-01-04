@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | SkillHub</title>
+    <link rel="stylesheet" href="./css/admin.css">
+    <script>
+        // Check if admin is logged in
+        const isLoggedIn = localStorage.getItem('skillhub_admin') === 'true';
+        
+        if (isLoggedIn) {
+            window.location.href = 'dash-board.html';
+        } else {
+            window.location.href = 'login.html';
+        }
+    </script>
+
+    <!-- Head section mein (admin pages ke liye) -->
+<script src="js/admin-auth.js"></script>
+<script src="js/admin-core.js"></script>
+<script src="js/admin-dash-board.js"></script>
+<script src="js/admin-courses.js"></script>
+</head>
+<body>
+    <div style="text-align: center; padding: 50px; font-family: 'Poppins', sans-serif;">
+        <h2 style="color: #0d9488;">Redirecting to Admin Panel...</h2>
+        <p>Please wait a moment</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users | SkillHub Admin</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        // Check login
+        if (localStorage.getItem('skillhub_admin') !== 'true') {
+            window.location.href = 'login.html';
+        }
+        
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.admin-sidebar');
+            sidebar.classList.toggle('active');
+        }
+        
+        function logoutAdmin() {
+            localStorage.removeItem('skillhub_admin');
+            window.location.href = 'login.html';
+        }
+    </script>
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <a href="dash-board.html" class="admin-logo">
+    <img src="./assets/imgs/logo.png" alt="SkillHub Logo" class="logo-img">
+    <span class="logo-text">SkillHub Admin</span>
+</a>
+            </div>
+            
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-details">
+                    <h4 id="adminName">Administrator</h4>
+                    <span> Admin</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dash-board.html" class="nav-item">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="courses.html" class="nav-item">
+                    <i class="fas fa-book-open"></i>
+                    <span>Courses</span>
+                </a>
+                <a href="user.html" class="nav-item active">
+                    <i class="fas fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="instructors.html" class="nav-item">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span>Instructors</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="#" class="nav-item logout" onclick="logoutAdmin()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Header -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <button class="menu-toggle" onclick="toggleSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div>
+                        <h1>Users Management</h1>
+                        <p class="welcome-text">Manage registered users and enrollments</p>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <input type="text" class="form-control" placeholder="Search users..." style="width: 200px;">
+                </div>
+            </header>
+            
+            <!-- Users Table -->
+            <div class="data-table">
+                <div class="table-header">
+                    <h3>All Users (1,234 total)</h3>
+                    <div class="table-actions">
+                        <select class="form-control" style="width: 150px;">
+                            <option>All Status</option>
+                            <option>Active</option>
+                            <option>Inactive</option>
+                        </select>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Email</th>
+                                <th>Joined</th>
+                                <th>Courses</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="user-info-cell">
+                                        <div class="user-avatar-small">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Ali Ahmed</strong>
+                                            <p style="font-size: 13px; color: var(--gray-600); margin-top: 3px;">Student</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>ali.ahmed@email.com</td>
+                                <td>2024-03-15</td>
+                                <td>3</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-sm btn-edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-sm btn-delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <div class="user-info-cell">
+                                        <div class="user-avatar-small">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Sara Khan</strong>
+                                            <p style="font-size: 13px; color: var(--gray-600); margin-top: 3px;">Student</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>sara.khan@email.com</td>
+                                <td>2024-02-28</td>
+                                <td>2</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-sm btn-edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-sm btn-delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <div class="user-info-cell">
+                                        <div class="user-avatar-small">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Usman Riaz</strong>
+                                            <p style="font-size: 13px; color: var(--gray-600); margin-top: 3px;">Instructor</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>usman.riaz@email.com</td>
+                                <td>2024-01-10</td>
+                                <td>1</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-sm btn-edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-sm btn-delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <div class="user-info-cell">
+                                        <div class="user-avatar-small">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Fatima Malik</strong>
+                                            <p style="font-size: 13px; color: var(--gray-600); margin-top: 3px;">Student</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>fatima.malik@email.com</td>
+                                <td>2024-03-01</td>
+                                <td>1</td>
+                                <td><span class="status-badge status-pending">Pending</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-sm btn-edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-sm btn-delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <div class="user-info-cell">
+                                        <div class="user-avatar-small">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Ahmed Hassan</strong>
+                                            <p style="font-size: 13px; color: var(--gray-600); margin-top: 3px;">Admin</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>ahmed.hassan@email.com</td>
+                                <td>2023-12-05</td>
+                                <td>0</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-sm btn-edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-sm btn-delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="pagination">
+                    <div style="color: var(--gray-600); font-size: 14px;">
+                        Showing 1 to 5 of 1,234 users
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn btn-outline" disabled>
+                            <i class="fas fa-chevron-left"></i> Previous
+                        </button>
+                        <button class="btn btn-outline">
+                            Next <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set admin name
+            const adminName = localStorage.getItem('admin_username') || 'Administrator';
+            document.getElementById('adminName').textContent = adminName;
+            
+            // Mobile sidebar
+            document.addEventListener('click', function(event) {
+                const sidebar = document.querySelector('.admin-sidebar');
+                const isMobile = window.innerWidth <= 992;
+                
+                if (isMobile && sidebar.classList.contains('active') && 
+                    !sidebar.contains(event.target) && 
+                    !event.target.classList.contains('menu-toggle') &&
+                    !event.target.closest('.menu-toggle')) {
+                    sidebar.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

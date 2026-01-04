@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | SkillHub Admin</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        // Check login
+        if (localStorage.getItem('skillhub_admin') !== 'true') {
+            window.location.href = 'login.html';
+        }
+        
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.admin-sidebar');
+            sidebar.classList.toggle('active');
+        }
+        
+        function logoutAdmin() {
+            localStorage.removeItem('skillhub_admin');
+            window.location.href = 'login.html';
+        }
+    </script>
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <a href="dash-board.html" class="admin-logo">
+    <img src="./assets/imgs/logo.png" alt="SkillHub Logo" class="logo-img">
+    <span class="logo-text">SkillHub Admin</span>
+</a>
+            </div>
+            
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-details">
+                    <h4 id="adminName">Administrator</h4>
+                    <span>Super Admin</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dash-board.html" class="nav-item active">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="courses.html" class="nav-item">
+                    <i class="fas fa-book-open"></i>
+                    <span>Courses</span>
+                    <span class="badge">5</span>
+                </a>
+                <a href="user.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="instructors.html" class="nav-item">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span>Instructors</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="#" class="nav-item logout" onclick="logoutAdmin()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Header -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <button class="menu-toggle" onclick="toggleSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div>
+                        <h1>Dashboard</h1>
+                        <p class="welcome-text" id="welcomeText">Welcome back!</p>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <button class="btn-icon" title="Notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">2</span>
+                    </button>
+                    <button class="btn-icon" title="Profile">
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                </div>
+            </header>
+            
+            <!-- Stats Cards -->
+            <section class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon users">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-trend trend-up">
+                            <i class="fas fa-arrow-up"></i> 12%
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3>1,234</h3>
+                        <p>Total Users</p>
+                        <div class="stat-trend trend-up">
+                            <i class="fas fa-arrow-up"></i> 142 new this month
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon courses">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div class="stat-trend trend-up">
+                            <i class="fas fa-arrow-up"></i> 5%
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3>5</h3>
+                        <p>Total Courses</p>
+                        <div class="stat-trend trend-up">
+                            <i class="fas fa-arrow-up"></i> All active
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon revenue">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-trend trend-up">
+                            <i class="fas fa-arrow-up"></i> 18%
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3>$12,450</h3>
+                        <p>Total Revenue</p>
+                        <div class="stat-trend trend-up">
+                            <i class="fas fa-arrow-up"></i> $1,850 this month
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon enrollments">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="stat-trend trend-up">
+                            <i class="fas fa-arrow-up"></i> 8%
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3>2,879</h3>
+                        <p>Total Enrollments</p>
+                        <div class="stat-trend trend-up">
+                            <i class="fas fa-arrow-up"></i> 67 new this week
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Recent Activity -->
+            <section class="recent-activity">
+                <div class="activity-header">
+                    <h3>Recent Activity</h3>
+                    <a href="#" class="btn btn-outline">View All</a>
+                </div>
+                
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon icon-enrollment">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>New Enrollment</h4>
+                            <p>Ali Ahmed enrolled in Dropshipping course</p>
+                        </div>
+                        <div class="activity-time">10 min ago</div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon icon-payment">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Payment Received</h4>
+                            <p>Payment of PKR 30,000 for Digital Art course</p>
+                        </div>
+                        <div class="activity-time">2 hours ago</div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon icon-course">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Course Updated</h4>
+                            <p>AI Power-Up course content was updated</p>
+                        </div>
+                        <div class="activity-time">1 day ago</div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon icon-user">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>New Instructor</h4>
+                            <p>Sarah Johnson approved as new instructor</p>
+                        </div>
+                        <div class="activity-time">2 days ago</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set admin name
+            const adminName = localStorage.getItem('admin_username') || 'Administrator';
+            document.getElementById('adminName').textContent = adminName;
+            document.getElementById('welcomeText').textContent = `Welcome back, ${adminName}!`;
+            
+            // Mobile sidebar close on click outside
+            document.addEventListener('click', function(event) {
+                const sidebar = document.querySelector('.admin-sidebar');
+                const isMobile = window.innerWidth <= 992;
+                
+                if (isMobile && sidebar.classList.contains('active') && 
+                    !sidebar.contains(event.target) && 
+                    !event.target.classList.contains('menu-toggle') &&
+                    !event.target.closest('.menu-toggle')) {
+                    sidebar.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+<!-- dashboard.html mein -->
+<script src="js/admin-auth.js"></script>
+<script src="js/admin-core.js"></script>
+<script src="js/admin-dash-board.js"></script>

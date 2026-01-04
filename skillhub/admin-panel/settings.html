@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | SkillHub Admin</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        // Check login
+        if (localStorage.getItem('skillhub_admin') !== 'true') {
+            window.location.href = 'login.html';
+        }
+        
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.admin-sidebar');
+            sidebar.classList.toggle('active');
+        }
+        
+        function logoutAdmin() {
+            localStorage.removeItem('skillhub_admin');
+            window.location.href = 'login.html';
+        }
+    </script>
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+               <a href="dash-board.html" class="admin-logo">
+    <img src="./assets/imgs/logo.png" alt="SkillHub Logo" class="logo-img">
+    <span class="logo-text">SkillHub Admin</span>
+</a>
+            </div>
+            
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-details">
+                    <h4 id="adminName">Administrator</h4>
+                    <span>Super Admin</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dash-board.html" class="nav-item">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="courses.html" class="nav-item">
+                    <i class="fas fa-book-open"></i>
+                    <span>Courses</span>
+                </a>
+                <a href="user.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="instructors.html" class="nav-item">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span>Instructors</span>
+                </a>
+                <a href="settings.html" class="nav-item active">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="#" class="nav-item logout" onclick="logoutAdmin()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Header -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <button class="menu-toggle" onclick="toggleSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div>
+                        <h1>Settings</h1>
+                        <p class="welcome-text">Manage your platform settings</p>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Settings Tabs -->
+            <div class="form-card">
+                <div style="margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid var(--gray-200);">
+                    <h3>General Settings</h3>
+                </div>
+                
+                <form id="settingsForm">
+                    <div class="form-group">
+                        <label for="siteName">Site Name</label>
+                        <input type="text" id="siteName" class="form-control" value="SkillHub" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="siteEmail">Contact Email</label>
+                        <input type="email" id="siteEmail" class="form-control" value="contact@skillhub.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="currency">Currency</label>
+                        <select id="currency" class="form-control">
+                            <option value="PKR" selected>PKR (Pakistani Rupee)</option>
+                            <option value="USD">USD (US Dollar)</option>
+                            <option value="EUR">EUR (Euro)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="timezone">Timezone</label>
+                        <select id="timezone" class="form-control">
+                            <option value="Asia/Karachi" selected>Asia/Karachi (PKT)</option>
+                            <option value="UTC">UTC</option>
+                            <option value="America/New_York">America/New_York</option>
+                        </select>
+                    </div>
+                    
+                    <div style="margin: 30px 0; padding: 20px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid var(--primary);">
+                        <h4 style="margin-bottom: 10px; color: var(--primary-dark);">
+                            <i class="fas fa-shield-alt"></i> Security Settings
+                        </h4>
+                        <div class="form-group" style="margin-top: 15px;">
+                            <label class="remember">
+                                <input type="checkbox" id="enable2FA">
+                                <span>Enable Two-Factor Authentication</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions" style="display: flex; justify-content: flex-end; gap: 15px; margin-top: 25px;">
+                        <button type="button" class="btn btn-outline" onclick="resetForm()">Reset</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Danger Zone -->
+            <div class="form-card" style="margin-top: 30px; border-left: 4px solid var(--danger);">
+                <div style="margin-bottom: 20px;">
+                    <h3 style="color: var(--danger);">
+                        <i class="fas fa-exclamation-triangle"></i> Danger Zone
+                    </h3>
+                    <p style="color: var(--gray-600); font-size: 14px; margin-top: 5px;">
+                        These actions are irreversible. Please proceed with caution.
+                    </p>
+                </div>
+                
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #fef2f2; border-radius: 8px;">
+                        <div>
+                            <h4 style="margin-bottom: 5px; color: var(--danger);">Clear All Data</h4>
+                            <p style="font-size: 14px; color: var(--gray-600);">Remove all courses, users, and data</p>
+                        </div>
+                        <button class="btn btn-danger">
+                            <i class="fas fa-trash"></i> Clear Data
+                        </button>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #fef2f2; border-radius: 8px;">
+                        <div>
+                            <h4 style="margin-bottom: 5px; color: var(--danger);">Reset Platform</h4>
+                            <p style="font-size: 14px; color: var(--gray-600);">Reset to factory settings</p>
+                        </div>
+                        <button class="btn btn-danger">
+                            <i class="fas fa-redo"></i> Reset Platform
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set admin name
+            const adminName = localStorage.getItem('admin_username') || 'Administrator';
+            document.getElementById('adminName').textContent = adminName;
+            
+            // Mobile sidebar
+            document.addEventListener('click', function(event) {
+                const sidebar = document.querySelector('.admin-sidebar');
+                const isMobile = window.innerWidth <= 992;
+                
+                if (isMobile && sidebar.classList.contains('active') && 
+                    !sidebar.contains(event.target) && 
+                    !event.target.classList.contains('menu-toggle') &&
+                    !event.target.closest('.menu-toggle')) {
+                    sidebar.classList.remove('active');
+                }
+            });
+            
+            // Handle settings form
+            document.getElementById('settingsForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Settings saved successfully!');
+            });
+            
+            function resetForm() {
+                document.getElementById('settingsForm').reset();
+                alert('Form reset to default values');
+            }
+        });
+    </script>
+</body>
+</html>
+<!-- Head section mein (admin pages ke liye) -->
+<script src="js/admin-auth.js"></script>
+<script src="js/admin-core.js"></script>
+<script src="js/admin-dash-board.js"></script>
+<script src="js/admin-courses.js"></script>

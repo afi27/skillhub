@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categories | Admin Panel</title>
+  <link rel="stylesheet" href="./css/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    // Check if admin is logged in
+    if (localStorage.getItem("skillhub_admin") !== "true") {
+      window.location.href = "login.html";
+    }
+    
+    // Theme handling
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedTheme = localStorage.getItem('admin_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    });
+    
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('admin_theme', newTheme);
+    }
+    
+    function logoutAdmin() {
+      localStorage.removeItem("skillhub_admin");
+      window.location.href = "login.html";
+    }
+    
+    function toggleSidebar() {
+      const sidebar = document.querySelector('.admin-sidebar');
+      sidebar.classList.toggle('active');
+    }
+  </script>
+</head>
+<body class="admin-body">
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="sidebar-header">
+      <a href="dash-board.html" class="admin-logo">
+    <img src="./assets/imgs/logo.png" alt="SkillHub Logo" class="logo-img">
+    <span class="logo-text">SkillHub Admin</span>
+</a>
+      <button class="sidebar-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <div class="user-info">
+      <div class="user-avatar">
+        <i class="fas fa-user"></i>
+      </div>
+      <div class="user-details">
+        <h4 id="adminName">Administrator</h4>
+        <span id="adminRole">Super Admin</span>
+      </div>
+    </div>
+    
+    <nav class="sidebar-nav">
+      <a href="dash-board.html" class="nav-item">
+        <i class="fas fa-tachometer-alt"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="categories.html" class="nav-item active">
+        <i class="fas fa-folder"></i>
+        <span>Categories</span>
+      </a>
+      <a href="courses.html" class="nav-item">
+        <i class="fas fa-book-open"></i>
+        <span>Courses</span>
+        <span class="badge">45</span>
+      </a>
+      <a href="instructors.html" class="nav-item">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <span>Instructors</span>
+      </a>
+      <a href="user.html" class="nav-item">
+        <i class="fas fa-users"></i>
+        <span>Users</span>
+        <span class="badge">12</span>
+      </a>
+      <a href="settings.html" class="nav-item">
+        <i class="fas fa-cog"></i>
+        <span>Settings</span>
+      </a>
+    </nav>
+    
+    <div class="sidebar-footer">
+      <a href="#" class="nav-item logout" onclick="logoutAdmin()">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Logout</span>
+      </a>
+    </div>
+  </aside>
+  
+  <!-- Main Content -->
+  <main class="admin-main">
+    <!-- Header -->
+    <header class="admin-header">
+      <div class="header-left">
+        <button class="sidebar-toggle mobile-toggle" onclick="toggleSidebar()">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div>
+          <h1>Categories</h1>
+          <p class="welcome-text">Manage course categories and subcategories</p>
+        </div>
+      </div>
+      
+      <div class="header-right">
+        <button class="btn-icon" onclick="toggleTheme()" title="Toggle Theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="btn btn-primary" onclick="openAddCategoryModal()">
+          <i class="fas fa-plus"></i> Add Category
+        </button>
+      </div>
+    </header>
+    
+    <!-- Categories Grid -->
+    <section class="categories-grid">
+      <div class="category-card">
+        <div class="category-header">
+          <div class="category-icon" style="background: linear-gradient(135deg, #3b82f6, #60a5fa);">
+            <i class="fas fa-code"></i>
+          </div>
+          <div>
+            <h3>Web Development</h3>
+            <p>12 Courses</p>
+          </div>
+        </div>
+        <div class="category-stats">
+          <div>
+            <h4>2.1K</h4>
+            <p>Enrollments</p>
+          </div>
+          <div>
+            <h4>8</h4>
+            <p>Instructors</p>
+          </div>
+          <div>
+            <h4>4.8</h4>
+            <p>Rating</p>
+          </div>
+        </div>
+        <div class="category-actions">
+          <button class="btn-sm btn-edit">
+            <i class="fas fa-edit"></i> Edit
+          </button>
+          <button class="btn-sm btn-delete">
+            <i class="fas fa-trash"></i> Delete
+          </button>
+        </div>
+      </div>
+      
+      <div class="category-card">
+        <div class="category-header">
+          <div class="category-icon" style="background: linear-gradient(135deg, #10b981, #34d399);">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div>
+            <h3>Data Science</h3>
+            <p>8 Courses</p>
+          </div>
+        </div>
+        <div class="category-stats">
+          <div>
+            <h4>1.5K</h4>
+            <p>Enrollments</p>
+          </div>
+          <div>
+            <h4>6</h4>
+            <p>Instructors</p>
+          </div>
+          <div>
+            <h4>4.7</h4>
+            <p>Rating</p>
+          </div>
+        </div>
+        <div class="category-actions">
+          <button class="btn-sm btn-edit">
+            <i class="fas fa-edit"></i> Edit
+          </button>
+          <button class="btn-sm btn-delete">
+            <i class="fas fa-trash"></i> Delete
+          </button>
+        </div>
+      </div>
+      
+      <div class="category-card">
+        <div class="category-header">
+          <div class="category-icon" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <div>
+            <h3>Design</h3>
+            <p>10 Courses</p>
+          </div>
+        </div>
+        <div class="category-stats">
+          <div>
+            <h4>1.8K</h4>
+            <p>Enrollments</p>
+          </div>
+          <div>
+            <h4>5</h4>
+            <p>Instructors</p>
+          </div>
+          <div>
+            <h4>4.9</h4>
+            <p>Rating</p>
+          </div>
+        </div>
+        <div class="category-actions">
+          <button class="btn-sm btn-edit">
+            <i class="fas fa-edit"></i> Edit
+          </button>
+          <button class="btn-sm btn-delete">
+            <i class="fas fa-trash"></i> Delete
+          </button>
+        </div>
+      </div>
+      
+      <div class="category-card">
+        <div class="category-header">
+          <div class="category-icon" style="background: linear-gradient(135deg, #ef4444, #f87171);">
+            <i class="fas fa-bullhorn"></i>
+          </div>
+          <div>
+            <h3>Marketing</h3>
+            <p>7 Courses</p>
+          </div>
+        </div>
+        <div class="category-stats">
+          <div>
+            <h4>1.2K</h4>
+            <p>Enrollments</p>
+          </div>
+          <div>
+            <h4>4</h4>
+            <p>Instructors</p>
+          </div>
+          <div>
+            <h4>4.6</h4>
+            <p>Rating</p>
+          </div>
+        </div>
+        <div class="category-actions">
+          <button class="btn-sm btn-edit">
+            <i class="fas fa-edit"></i> Edit
+          </button>
+          <button class="btn-sm btn-delete">
+            <i class="fas fa-trash"></i> Delete
+          </button>
+        </div>
+      </div>
+      
+      <div class="category-card">
+        <div class="category-header">
+          <div class="category-icon" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa);">
+            <i class="fas fa-business-time"></i>
+          </div>
+          <div>
+            <h3>Business</h3>
+            <p>5 Courses</p>
+          </div>
+        </div>
+        <div class="category-stats">
+          <div>
+            <h4>890</h4>
+            <p>Enrollments</p>
+          </div>
+          <div>
+            <h4>3</h4>
+            <p>Instructors</p>
+          </div>
+          <div>
+            <h4>4.5</h4>
+            <p>Rating</p>
+          </div>
+        </div>
+        <div class="category-actions">
+          <button class="btn-sm btn-edit">
+            <i class="fas fa-edit"></i> Edit
+          </button>
+          <button class="btn-sm btn-delete">
+            <i class="fas fa-trash"></i> Delete
+          </button>
+        </div>
+      </div>
+      
+      <div class="category-card">
+        <div class="category-header">
+          <div class="category-icon" style="background: linear-gradient(135deg, #0d9488, #5eead4);">
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <div>
+            <h3>Add New</h3>
+            <p>Create category</p>
+          </div>
+        </div>
+        <div class="category-stats">
+          <div>
+            <h4>-</h4>
+            <p>Courses</p>
+          </div>
+          <div>
+            <h4>-</h4>
+            <p>Instructors</p>
+          </div>
+          <div>
+            <h4>-</h4>
+            <p>Rating</p>
+          </div>
+        </div>
+        <div class="category-actions">
+          <button class="btn-sm btn-primary" onclick="openAddCategoryModal()">
+            <i class="fas fa-plus"></i> Add New
+          </button>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Categories Table -->
+    <div class="data-table">
+      <div class="table-header">
+        <h3>All Categories</h3>
+        <div class="table-actions">
+          <input type="text" class="form-control" placeholder="Search categories..." style="width: 200px;">
+          <button class="btn btn-outline">
+            <i class="fas fa-filter"></i> Filter
+          </button>
+          <button class="btn btn-outline">
+            <i class="fas fa-download"></i> Export
+          </button>
+        </div>
+      </div>
+      
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Courses</th>
+              <th>Enrollments</th>
+              <th>Instructors</th>
+              <th>Rating</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="course-info">
+                  <div class="course-thumb-small">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #3b82f6, #60a5fa);"></div>
+                  </div>
+                  <div>
+                    <strong>Web Development</strong>
+                    <p style="font-size: 0.85rem; color: var(--gray-600); margin-top: 0.25rem;">HTML, CSS, JavaScript, React</p>
+                  </div>
+                </div>
+              </td>
+              <td>12</td>
+              <td>2,145</td>
+              <td>8</td>
+              <td>
+                <div style="display: flex; align-items: center; gap: 0.25rem;">
+                  <i class="fas fa-star" style="color: #f59e0b;"></i>
+                  <span>4.8</span>
+                </div>
+              </td>
+              <td><span class="status-badge status-active">Active</span></td>
+              <td>
+                <div class="action-buttons">
+                  <button class="btn-sm btn-edit">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-sm btn-delete">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td>
+                <div class="course-info">
+                  <div class="course-thumb-small">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #10b981, #34d399);"></div>
+                  </div>
+                  <div>
+                    <strong>Data Science</strong>
+                    <p style="font-size: 0.85rem; color: var(--gray-600); margin-top: 0.25rem;">Python, ML, Data Analysis</p>
+                  </div>
+                </div>
+              </td>
+              <td>8</td>
+              <td>1,567</td>
+              <td>6</td>
+              <td>
+                <div style="display: flex; align-items: center; gap: 0.25rem;">
+                  <i class="fas fa-star" style="color: #f59e0b;"></i>
+                  <span>4.7</span>
+                </div>
+              </td>
+              <td><span class="status-badge status-active">Active</span></td>
+              <td>
+                <div class="action-buttons">
+                  <button class="btn-sm btn-edit">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-sm btn-delete">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td>
+                <div class="course-info">
+                  <div class="course-thumb-small">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #f59e0b, #fbbf24);"></div>
+                  </div>
+                  <div>
+                    <strong>Design</strong>
+                    <p style="font-size: 0.85rem; color: var(--gray-600); margin-top: 0.25rem;">UI/UX, Figma, Adobe XD</p>
+                  </div>
+                </div>
+              </td>
+              <td>10</td>
+              <td>1,845</td>
+              <td>5</td>
+              <td>
+                <div style="display: flex; align-items: center; gap: 0.25rem;">
+                  <i class="fas fa-star" style="color: #f59e0b;"></i>
+                  <span>4.9</span>
+                </div>
+              </td>
+              <td><span class="status-badge status-active">Active</span></td>
+              <td>
+                <div class="action-buttons">
+                  <button class="btn-sm btn-edit">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-sm btn-delete">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td>
+                <div class="course-info">
+                  <div class="course-thumb-small">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #ef4444, #f87171);"></div>
+                  </div>
+                  <div>
+                    <strong>Marketing</strong>
+                    <p style="font-size: 0.85rem; color: var(--gray-600); margin-top: 0.25rem;">Digital, SEO, Social Media</p>
+                  </div>
+                </div>
+              </td>
+              <td>7</td>
+              <td>1,234</td>
+              <td>4</td>
+              <td>
+                <div style="display: flex; align-items: center; gap: 0.25rem;">
+                  <i class="fas fa-star" style="color: #f59e0b;"></i>
+                  <span>4.6</span>
+                </div>
+              </td>
+              <td><span class="status-badge status-pending">Pending</span></td>
+              <td>
+                <div class="action-buttons">
+                  <button class="btn-sm btn-edit">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-sm btn-delete">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td>
+                <div class="course-info">
+                  <div class="course-thumb-small">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #8b5cf6, #a78bfa);"></div>
+                  </div>
+                  <div>
+                    <strong>Business</strong>
+                    <p style="font-size: 0.85rem; color: var(--gray-600); margin-top: 0.25rem;">Management, Finance, Strategy</p>
+                  </div>
+                </div>
+              </td>
+              <td>5</td>
+              <td>890</td>
+              <td>3</td>
+              <td>
+                <div style="display: flex; align-items: center; gap: 0.25rem;">
+                  <i class="fas fa-star" style="color: #f59e0b;"></i>
+                  <span>4.5</span>
+                </div>
+              </td>
+              <td><span class="status-badge status-active">Active</span></td>
+              <td>
+                <div class="action-buttons">
+                  <button class="btn-sm btn-edit">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-sm btn-delete">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div style="padding: 1rem; border-top: 1px solid var(--gray-200); display: flex; justify-content: space-between; align-items: center;">
+        <div style="color: var(--gray-600); font-size: 0.9rem;">
+          Showing 1 to 5 of 5 categories
+        </div>
+        <div style="display: flex; gap: 0.5rem;">
+          <button class="btn btn-outline" disabled>
+            <i class="fas fa-chevron-left"></i> Previous
+          </button>
+          <button class="btn btn-outline">
+            Next <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Add Category Modal -->
+  <div id="addCategoryModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Add New Category</h3>
+        <button class="btn-icon" onclick="closeAddCategoryModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="categoryForm">
+          <div class="form-group">
+            <label for="categoryName">Category Name</label>
+            <input type="text" id="categoryName" class="form-control" placeholder="Enter category name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="categoryDescription">Description</label>
+            <textarea id="categoryDescription" class="form-control" rows="3" placeholder="Enter category description"></textarea>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="categoryIcon">Icon</label>
+              <select id="categoryIcon" class="form-control">
+                <option value="fa-code">Code</option>
+                <option value="fa-chart-line">Chart</option>
+                <option value="fa-paint-brush">Paint</option>
+                <option value="fa-bullhorn">Megaphone</option>
+                <option value="fa-business-time">Business</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="categoryColor">Color Theme</label>
+              <select id="categoryColor" class="form-control">
+                <option value="#3b82f6">Blue</option>
+                <option value="#10b981">Green</option>
+                <option value="#f59e0b">Orange</option>
+                <option value="#ef4444">Red</option>
+                <option value="#8b5cf6">Purple</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="categoryStatus">Status</label>
+            <div class="radio-group">
+              <label class="radio">
+                <input type="radio" name="status" value="active" checked>
+                <span>Active</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="status" value="inactive">
+                <span>Inactive</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="btn btn-outline" onclick="closeAddCategoryModal()">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Category</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set admin name
+      const adminName = localStorage.getItem("admin_username") || "Administrator";
+      document.getElementById('adminName').textContent = adminName;
+      
+      // Mobile sidebar toggle
+      const mobileToggle = document.querySelector('.mobile-toggle');
+      const sidebarToggle = document.querySelector('.sidebar-toggle');
+      
+      mobileToggle.addEventListener('click', toggleSidebar);
+      sidebarToggle.addEventListener('click', toggleSidebar);
+    });
+    
+    function openAddCategoryModal() {
+      document.getElementById('addCategoryModal').style.display = 'block';
+    }
+    
+    function closeAddCategoryModal() {
+      document.getElementById('addCategoryModal').style.display = 'none';
+      document.getElementById('categoryForm').reset();
+    }
+    
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('addCategoryModal');
+      if (event.target === modal) {
+        closeAddCategoryModal();
+      }
+    };
+    
+    // Handle form submission
+    document.getElementById('categoryForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Category added successfully!');
+      closeAddCategoryModal();
+    });
+  </script>
+</body>
+</html>
+
+<!-- Head section mein (admin pages ke liye) -->
+<script src="js/admin-auth.js"></script>
+<script src="js/admin-core.js"></script>
+<script src="js/admin-dash-board.js"></script>
+<script src="js/admin-courses.js"></script>
