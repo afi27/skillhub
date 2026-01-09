@@ -1244,3 +1244,24 @@ p {
   transform: translateY(-2px);
 }
 
+/* Hide menu on small screens by default */
+.nav-menu {
+    display: flex; /* desktop default */
+}
+
+@media (max-width: 992px) {
+    .nav-menu {
+        display: none; /* hide menu on mobile */
+        flex-direction: column;
+        background: #033126;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 1rem;
+    }
+
+    .nav-menu.active {
+        display: flex; /* show menu when active */
+    }
+}
