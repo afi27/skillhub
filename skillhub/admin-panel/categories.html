@@ -6,35 +6,7 @@
   <title>Categories | Admin Panel</title>
   <link rel="stylesheet" href="./css/admin.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script>
-    // Check if admin is logged in
-    if (localStorage.getItem("skillhub_admin") !== "true") {
-      window.location.href = "login.html";
-    }
-    
-    // Theme handling
-    document.addEventListener('DOMContentLoaded', function() {
-      const savedTheme = localStorage.getItem('admin_theme') || 'light';
-      document.documentElement.setAttribute('data-theme', savedTheme);
-    });
-    
-    function toggleTheme() {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('admin_theme', newTheme);
-    }
-    
-    function logoutAdmin() {
-      localStorage.removeItem("skillhub_admin");
-      window.location.href = "login.html";
-    }
-    
-    function toggleSidebar() {
-      const sidebar = document.querySelector('.admin-sidebar');
-      sidebar.classList.toggle('active');
-    }
-  </script>
+ 
 </head>
 <body class="admin-body">
   <!-- Sidebar -->
