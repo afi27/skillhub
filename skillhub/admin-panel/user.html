@@ -250,6 +250,7 @@
                             </tr>
                         </tbody>
                     </table>
+                    
                 </div>
                 
                 <div class="pagination">
@@ -268,6 +269,40 @@
             </div>
         </main>
     </div>
+<!-- Edit User Modal -->
+<div id="editUserModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Edit User</h2>
+        <form id="editUserForm">
+            <div class="form-group">
+                <label for="userName">Name:</label>
+                <input type="text" id="userName" name="userName" required>
+            </div>
+            <div class="form-group">
+                <label for="userEmail">Email:</label>
+                <input type="email" id="userEmail" name="userEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="userRole">Role:</label>
+                <select id="userRole" name="userRole" required>
+                    <option value="Student">Student</option>
+                    <option value="Instructor">Instructor</option>
+                    <option value="Admin">Admin</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="userStatus">Status:</label>
+                <select id="userStatus" name="userStatus" required>
+                    <option value="Active">Active</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+    </div>
+</div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -289,5 +324,54 @@
             });
         });
     </script>
+
+    <script>
+    // Get modal elements
+    const modal = document.getElementById('editUserModal');
+    const closeBtn = document.querySelector('.close-btn');
+
+    // Open modal on Edit button click
+    document.querySelectorAll('.btn-edit').forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Get the row of the clicked button
+            const row = btn.closest('tr');
+            const name = row.querySelector('td div strong').textContent;
+            const email = row.children[1].textContent;
+            const role = row.querySelector('td div p').textContent;
+            const status = row.children[4].textContent;
+
+            // Fill the form with existing data
+            document.getElementById('userName').value = name;
+            document.getElementById('userEmail').value = email;
+            document.getElementById('userRole').value = role;
+            document.getElementById('userStatus').value = status;
+
+            // Show the modal
+            modal.style.display = 'block';
+        });
+    });
+
+    // Close modal when clicking on X
+    closeBtn.onclick = function() {
+        modal.style.display = 'none';
+    }
+
+    // Close modal when clicking outside the modal content
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+
+    // Handle form submission
+    document.getElementById('editUserForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Here you can send the updated data to your backend via AJAX
+        alert('User updated successfully!');
+        modal.style.display = 'none';
+    });
+</script>
+
 </body>
+
 </html>
