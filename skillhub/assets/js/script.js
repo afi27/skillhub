@@ -14,6 +14,15 @@ document.addEventListener('DOMContentLoaded', function() {
     initFormValidation();
 });
 
+// script.js
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+
+menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+});
+
+
 // ===== THEME TOGGLE =====
 function initThemeToggle() {
     const themeToggle = document.getElementById('themeToggle');
@@ -162,4 +171,33 @@ function initFAQ() {
             const answer = question.nextElementSibling;
             const isActive = question.classList.contains('active');
             
-            //
+        
+        }
+    }
+}
+
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value.trim();
+
+  // Find user
+  const user = accounts.find(acc => acc.email === email && acc.password === password);
+
+  if (!user) {
+    alert("Invalid email or password!");
+    return;
+  }
+
+  // Save user info in localStorage
+  localStorage.setItem('skillhub_user', JSON.stringify(user));
+  localStorage.setItem('skillhub_loggedIn', 'true');
+
+  // Redirect based on role
+  if (user.role === "admin") {
+    window.location.href = "admin-panel.html"; // admin dashboard
+  } else {
+    window.location.href = "user-profile.html"; // regular user profile
+  }
+});
