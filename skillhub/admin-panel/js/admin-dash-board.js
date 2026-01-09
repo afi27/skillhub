@@ -3,6 +3,11 @@
  * Handles dashboard statistics and charts
  */
 
+function toggleSidebar() {
+    const sidebar = document.querySelector('.admin-sidebar');
+    sidebar.classList.toggle('active');
+}
+
 const AdminDashboard = {
     // Dashboard data
     stats: {
